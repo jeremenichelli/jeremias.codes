@@ -13,13 +13,13 @@ It sounds horrifying, isn't it? But don't worry, JavaScript is going nowhere.
 
 And it shouldn't, it’s one of the reasons why building on the web is great today, but it's not the only tool we have available and it's usually a pretty critical one.
 
-Nevertheless, we keep building sites and implementing new features with the thought that JavaScript will always be there. I remember talking about this with [Harry Roberts](//csswizardry.com) and he said to me:
+Nevertheless, we keep building sites and implementing new features with the thought that JavaScript will always be there. I remember talking about this with [Harry Roberts](//csswizardry.com) and he said:
 
-{% blockquote 'I’m willing to bet you have more IE6 visitors than disabled-JavaScript-on-purpose visitors. Your IE6 policy is probably ‘forget it’, so why would your disabled-JavaScript-on-purpose policy be any different?' %}
+{% blockquote 'I’m willing to bet you have more IE6 visitors than disabled-JavaScript-on-purpose visitors. Your IE6 policy is probably ‘forget it’, so why would your disabled-JavaScript-on-purpose policy be any different?' 'Harry Roberts' %}
 
 There are a lot of chances this is true for most of the projects out there, and it makes you question why we should even bother to support a JavaScript-disabled scenario. Later, he closes his quote with this:
 
-{% blockquote 'As Jake Archibald said, ‘[…] all your users are non-JavaScript while they are downloading your JavaScript’. So while I don’t think we should build or optimize for visitors who have disabled JavaScript, we shouldn’t make too many assumptions that our JavaScript will always work as we expect.' %}
+{% blockquote 'All your users are non-JavaScript while they are downloading your JavaScript’. So while I don’t think we should build or optimize for visitors who have disabled JavaScript, we shouldn’t make too many assumptions that our JavaScript will always work as we expect.' 'Jake Archibald' %}
 
 We do rely more and more on client code, and it's a trend that seems to not stop soon. It gave me a lot of thinking as someone who started coding when frameworks weren't a big thing.
 

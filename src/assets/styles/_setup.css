@@ -106,6 +106,12 @@
     text-wrap: balance;
     text-wrap: pretty;
 
+    & .card__quote {
+      color: var(--text--secondary);
+      font-weight: 700;
+      letter-spacing: var(--letter-spacing--small);
+    }
+
     @media (--big-devices) {
       margin: var(--spacing--medium);
     }

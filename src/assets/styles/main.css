@@ -259,7 +259,6 @@ footer {
 .card__quote {
   line-height: 1.35;
   font-size: var(--typography--01);
-  font-weight: 400;
   margin: 0;
   text-wrap: pretty;
 
