@@ -6,7 +6,7 @@ excerpt: I used to give talks and enjoyed it a lot, made tons of friends. For no
 tag_line: In the meantime my community efforts go to being the best ambassador possible for [JSHeroes](//jsheroes.io/) conference.
 ---
 
-<section class="section section__with-divider">
+<div class="section section__with-divider">
   <ol class="list" role="list">
     {%- for talk in talks -%}
       <li class="list__item" role="listitem">
@@ -19,4 +19,4 @@ tag_line: In the meantime my community efforts go to being the best ambassador p
       </li>
     {%- endfor -%}
   </ol>
-</section>
+</div>

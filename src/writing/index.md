@@ -6,7 +6,7 @@ excerpt: I often turn my thoughts and experiences into articles. Check out them 
 tag_line: Do you want me to write for your publication? Click [here](mailto:jmenichelli@gmail.com) to contact me via email.
 ---
 
-<section class="section section__with-divider">
+<div class="section section__with-divider">
   <ol class="list" role="list">
     {%- for post in collections.posts -%}
       <li class="list__item" role="listitem">
@@ -22,4 +22,4 @@ tag_line: Do you want me to write for your publication? Click [here](mailto:jmen
       </li>
     {%- endfor -%}
   </ol>
-</section>
+</div>

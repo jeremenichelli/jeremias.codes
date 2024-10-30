@@ -7,7 +7,7 @@ excerpt: Over a decade building seamless web experiences. Web accessibility advo
 tag_line: Check all my past and current projects in my [about](/about) page.
 ---
 
-<section class="section section__with-divider">
+<div class="section section__with-divider">
   <header>
       <h2 class="section__title">Writing</h2>
   </header>
@@ -28,5 +28,5 @@ tag_line: Check all my past and current projects in my [about](/about) page.
   </ol>
   <article class="card">
     <p class="card__tag-line">See the full list of <a href="/writing">articles here</a>.</p>
-  </article>
-</section>
+  </div>
+</div>

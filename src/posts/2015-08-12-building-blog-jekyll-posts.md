@@ -17,7 +17,7 @@ Let's go with something simple.
 {% raw %}{% include head.html %}{% endraw %} {% raw %}{% include header.html
 %}{% endraw %}
 
-<section class="post--content">
+<div class="post--content">
   {% raw %}
   <p class="post--date">{{ page.date | date_to_string }}</p>
   {% endraw %} {% raw %}
@@ -25,7 +25,7 @@ Let's go with something simple.
   {% endraw %} {% raw %}
   <p>{{ page.introduction }}</p>
   {% endraw %} {% raw %}{{ content }}{% endraw %}
-</section>
+</div>
 
 {% raw %}{% include footer.html %}{% endraw %}
 ```
