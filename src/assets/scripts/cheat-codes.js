@@ -24,13 +24,13 @@ const unlockTheme = (theme) => {
 };
 
 const setRandomTheme = () => {
-  const currentTheme = document.documentElement.dataset.theme
+  const currentTheme = document.documentElement.dataset.theme;
   const availableThemes = getVisibleThemeOptions()
-    .map(option => option.dataset.value) 
-    .filter(theme => theme !== currentTheme && theme !== 'system')
-  
-  const randomIndex = Math.floor(Math.random() * availableThemes.length)
-  const randomizedTheme = availableThemes[randomIndex]
+    .map((option) => option.dataset.value)
+    .filter((theme) => theme !== currentTheme && theme !== 'system');
+
+  const randomIndex = Math.floor(Math.random() * availableThemes.length);
+  const randomizedTheme = availableThemes[randomIndex];
 
   setTheme(randomizedTheme);
 };

@@ -53,7 +53,7 @@
     /* Global default text styles. */
     background-color: var(--surface--base);
     color: var(--text--primary);
-    font-family: 'SF Pro', Arial;
+    font-family: 'SF Pro', system-ui;
     font-weight: 400;
     line-height: 1.6;
 

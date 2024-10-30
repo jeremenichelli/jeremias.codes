@@ -31,32 +31,32 @@ export const getVisibleThemeOptions = () => {
  * Opens theme menu.
  */
 const openThemeMenu = async () => {
-	/**
-	 * When transition ends, set height to auto to adapt to DOM mutations
-	 * and later focus on first theme option.
-	 */
-	const onTransitionEnd = (event) => {
-		if (event.propertyName === 'height') {
-			themeMenu.style.setProperty('--height', `auto`)
-	
-			const themeOptions = getVisibleThemeOptions();
-			focusedThemeOption = themeOptions[0];
-			focusedThemeOption?.focus();
+  /**
+   * When transition ends, set height to auto to adapt to DOM mutations
+   * and later focus on first theme option.
+   */
+  const onTransitionEnd = (event) => {
+    if (event.propertyName === 'height') {
+      themeMenu.style.setProperty('--height', `auto`);
 
-			themeMenu.removeEventListener('transitionend', onTransitionEnd)
-		}
-	}
+      const themeOptions = getVisibleThemeOptions();
+      focusedThemeOption = themeOptions[0];
+      focusedThemeOption?.focus();
 
-	themeMenu.addEventListener('transitionend', onTransitionEnd)
+      themeMenu.removeEventListener('transitionend', onTransitionEnd);
+    }
+  };
 
-	/**
-	 * Reset menu height and add expanded class to trigger opening transition.
-	*/
-	themeMenu.style.setProperty('--height', `${themeMenuGroup.scrollHeight}px`)
-	themeMenu.style.setProperty('--opacity', `1`)
-	// themeMenu.classList.add('expanded')
-	
-	themeMenu.setAttribute('aria-hidden', 'false');
+  themeMenu.addEventListener('transitionend', onTransitionEnd);
+
+  /**
+   * Reset menu height and add expanded class to trigger opening transition.
+   */
+  themeMenu.style.setProperty('--height', `${themeMenuGroup.scrollHeight}px`);
+  themeMenu.style.setProperty('--opacity', `1`);
+  // themeMenu.classList.add('expanded')
+
+  themeMenu.setAttribute('aria-hidden', 'false');
   themeButton.setAttribute('aria-expanded', 'true');
 };
 
@@ -64,37 +64,36 @@ const openThemeMenu = async () => {
  * Closes theme menu.
  */
 const closeThemeMenu = async () => {
-	/**
-	 * When height transition ends, focus on back to the theme menu button.
-	 */
-	const onTransitionEnd = (event) => {
-		if (event.propertyName === 'height') {
-			themeButton?.focus();
+  /**
+   * When height transition ends, focus on back to the theme menu button.
+   */
+  const onTransitionEnd = (event) => {
+    if (event.propertyName === 'height') {
+      themeButton?.focus();
 
-			themeMenu.removeEventListener('transitionend', onTransitionEnd)
-		}
-	}
-	
-	themeMenu.addEventListener('transitionend', onTransitionEnd)
+      themeMenu.removeEventListener('transitionend', onTransitionEnd);
+    }
+  };
 
-	/**
-	 * We first set the initial height again because we can transition from `auto` value,
-	 * later we wait for two paint rounds to avoid overriding the value during mid-transition.
-	 * 
-	 * In the end we set it back to `0px`
-	 */
-	themeMenu.style.setProperty('--height', `${themeMenuGroup.scrollHeight}px`)
+  themeMenu.addEventListener('transitionend', onTransitionEnd);
 
-	requestAnimationFrame(() => {
-		requestAnimationFrame(() => {
+  /**
+   * We first set the initial height again because we can transition from `auto` value,
+   * later we wait for two paint rounds to avoid overriding the value during mid-transition.
+   *
+   * In the end we set it back to `0px`
+   */
+  themeMenu.style.setProperty('--height', `${themeMenuGroup.scrollHeight}px`);
 
-			themeMenu.style.setProperty('--height', `0px`)
-			themeMenu.style.setProperty('--opacity', `0`)
-		})
-	})
-	
-	themeMenu.setAttribute('aria-hidden', 'true');
-	themeButton.setAttribute('aria-expanded', 'false');
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      themeMenu.style.setProperty('--height', `0px`);
+      themeMenu.style.setProperty('--opacity', `0`);
+    });
+  });
+
+  themeMenu.setAttribute('aria-hidden', 'true');
+  themeButton.setAttribute('aria-expanded', 'false');
 };
 
 /**
