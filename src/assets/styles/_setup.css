@@ -1,0 +1,128 @@
+/* setup custom media queries */
+@custom-media --really-small-devices-that-might-not-exist (max-width: 320px);
+@custom-media --big-devices (min-width: 640px);
+@custom-media --not-big-devices (max-width: 639px);
+
+@layer setup {
+  html {
+    box-sizing: border-box;
+    height: 100%;
+
+    /* general font size is declared at root level to use rem units */
+    font-size: 16px;
+
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+
+    @media (--big-devices) {
+      font-size: 18px;
+    }
+
+    @media (--really-small-devices-that-might-not-exist) {
+      font-size: 15px;
+    }
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+
+    /* disable tap color in Chrome mobile */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  * {
+    /* adjust global focus outline styles for all elements */
+    &:focus-visible {
+      outline-color: var(--accent);
+      outline-style: solid;
+      outline-offset: 2px;
+      outline-width: 2px;
+    }
+  }
+
+  ::selection {
+    /* global selextion styles */
+    background-color: var(--accent);
+    color: var(--text--primary--inverted);
+  }
+
+  body {
+    /* Global default text styles. */
+    background-color: var(--surface--base);
+    color: var(--text--primary);
+    font-family: 'SF Pro', Arial;
+    font-weight: 400;
+    line-height: 1.6;
+
+    /**
+		 * Fixes enlarged text in iOS for pre/code elements.
+		 */
+    -webkit-text-size-adjust: 100%;
+
+    /* Reset spacing on body tag. */
+    margin: 0;
+    padding: 0;
+
+    /**
+		 * Some browsers don't support font-feature-settings inside font face
+		 * declarations, so they are needed at tag level. 
+		 */
+    /* font-feature-settings: 'ss01' on; */
+
+    /* global transition for theme switching */
+    transition-property: color, background-color, filter;
+    transition-duration: 0.25s;
+  }
+
+  del {
+    text-decoration: line-through;
+  }
+
+  a {
+    border-radius: var(--radius--small);
+    color: var(--link);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline solid 2px;
+      text-underline-offset: 2px;
+      text-decoration-skip-ink: all;
+    }
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  blockquote {
+    margin: var(--spacing--base);
+
+    /* "pretty" is still not supported, so balance is a fallback. */
+    text-wrap: balance;
+    text-wrap: pretty;
+
+    @media (--big-devices) {
+      margin: var(--spacing--medium);
+    }
+  }
+
+  /**
+	 * Push footer to the bottom by making
+	 * main to take all available space.
+	 */
+  html,
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  main {
+    flex-grow: 1;
+  }
+}

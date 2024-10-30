@@ -1,0 +1,44 @@
+@layer fonts {
+  @font-face {
+    font-family: 'SF Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/assets/fonts/SF-Pro-Display-Regular-subset.woff2')
+      format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SF Pro';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/assets/fonts/SF-Pro-Display-RegularItalic-subset.woff2')
+      format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SF Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/assets/fonts/SF-Pro-Display-Bold-subset.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SF Pro';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url('/assets/fonts/SF-Pro-Display-Black-subset.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SF Pro';
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: url('/assets/fonts/SF-Pro-Display-BlackItalic-subset.woff2')
+      format('woff2');
+  }
+}

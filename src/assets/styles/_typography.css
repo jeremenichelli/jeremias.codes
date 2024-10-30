@@ -1,0 +1,36 @@
+@layer theme {
+  :root {
+    /**
+     * TYPOGRAPHY SCALE
+     *
+     * In mobile a custom modified Third Major Scale (1.250) is used,
+     * while in desktop is a Second Major Scale (1.125).
+     */
+    --typography--00: 1rem; /* Used in base text content, list subtitles */
+    --typography--01: 1.25rem; /* Used in slightly more prominent actions like navigation links */
+    --typography--02: 1.38rem; /* Excerpts, card large paragraphs and taglines, quotes */
+    --typography--03: 1.424rem; /* Used in list titles, heading level 4, 5 */
+    --typography--04: 1.602rem; /* Heading level 3 in content */
+    --typography--05: 2.027rem; /* Heading level 2 in content */
+    --typography--06: 3.815rem; /* Unused for now */
+    --typography--07: 2.281rem; /* Subtitles on pages */
+    --typography--08: 2.281rem; /* Titles */
+
+    --typography--code: 15px; /* Pinned value for code font family */
+
+    @media (--big-devices) {
+      --typography--00: 1rem;
+      --typography--01: 1.125rem;
+      --typography--02: 1.266rem;
+      --typography--03: 1.424rem;
+      --typography--04: 1.602rem;
+      --typography--05: 1.802rem;
+      --typography--06: 2.027rem;
+      --typography--07: 2.281rem;
+      --typography--08: 2.566rem;
+    }
+
+    /* Letter spacings are relative to the font size of the element */
+    --letter-spacing--small: -0.01em;
+  }
+}

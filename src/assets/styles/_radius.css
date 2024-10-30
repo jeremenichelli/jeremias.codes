@@ -1,0 +1,9 @@
+@layer theme {
+  :root {
+    /* BORDER RADIUS */
+    --radius--small: 3px;
+    --radius--medium: 6px;
+    --radius--large: 16px;
+    --radius--full: 9999rem;
+  }
+}

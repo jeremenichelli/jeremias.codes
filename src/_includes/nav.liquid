@@ -1,0 +1,33 @@
+
+<div class="theme-menu" id="theme-menu" role="menu" aria-hidden="true" aria-label="Themes">
+  <ul class="theme-menu__group" role="group">
+    <li class="theme-menu__item" role="menuitemradio" tabindex="-1" aria-checked="false" data-value="system">System</li>
+    <li class="theme-menu__item" role="menuitemradio" tabindex="-1" aria-checked="false" data-value="light">Light</li>
+    <li class="theme-menu__item" role="menuitemradio" tabindex="-1" aria-checked="false" data-value="dark">Dark</li>
+    <li class="theme-menu__item" role="menuitemradio" tabindex="-1" aria-checked="false" data-value="emerald">Emerald</li>
+    <li class="theme-menu__item" role="menuitemradio" tabindex="-1" aria-checked="false" data-value="lavender">Lavender</li>
+    <li class="theme-menu__item" role="menuitemradio" tabindex="-1" aria-checked="false" data-value="konami">Konami</li>
+    <li class="theme-menu__item" role="menuitemradio" tabindex="-1" aria-checked="false" data-value="hedgehog">Hedgehog</li>
+  </ul>
+</div>
+
+<nav id="main-navigation" class="navigation" aria-label="Main navigation">
+
+  <a href="#main" class="navigation__link navigation__skip-link">Skip navigation</a>
+  <a href="/" {% if type == 'home' %}aria-current="page"{% endif %} class="navigation__link">Home</a>
+  <a {% if type == 'writing' %}aria-current="page"{% endif %} class="navigation__link {% if type == 'post' %}current{% endif %}" href="/writing/">Writing</a>
+  <a {% if type == 'speaking' %}aria-current="page"{% endif %} class="navigation__link " href="/speaking/">Speaking</a>
+  <a {% if type == 'about' %}aria-current="page"{% endif %} class="navigation__link " href="/about/">About</a>
+
+  <button
+    aria-label="Toggle theme menu"
+    class="navigation__theme-button"
+    aria-hidden="true"
+    tabindex="-1"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    aria-controls="theme-menu"
+    type="button"
+  >
+  </button>
+</nav>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="system" class="no-js" >
+
+  {% include 'head' %}
+  
+  <body data-instant-mousedown-shortcut data-instant-intensity="viewport">
+    
+    <header>
+      {% include 'nav' %}
+    </header>
+
+    <main id="main" class="main" aria-label="Main content">
+      <header class="section">
+        <h1 class="section__title">{{ title }}</h1>
+        {%- if subtitle -%}<p class="section__subtitle">{{ subtitle }}</p>{%- endif -%}
+        {%- if type == 'post' -%}
+          <p class="post__subtitle">
+            <time class="post__date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%b %d, %Y' }}</time>
+            {%- if host != null -%}
+              &nbsp;<span class="post__host">For <a href="{{ external_url }}">{{ host }}</a></span> 
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+      </header>
+
+      {%- if excerpt -%}
+      <section class="section">
+          <p class="card__quote">
+            {{ excerpt | orphans | markdownify }}  
+          </p>
+          {%- if tag_line -%}
+            <p class="card__tag-line">{{ tag_line | markdownify }}</p>
+          {%- endif -%}
+        </article>
+      </section>
+      {%- endif -%}
+
+      {{ content }}
+
+      {%- if type != 'post' and type != '404' -%}
+        <section class="section section__with-divider">
+          <article class="card">
+            <p class="card__quote">
+              I am currently on sabbatical, but will soon resume the search for my next job. I prioritize positions around design systems, developer experience engineering and lastly product engineering.</p>
+            <p class="card__tag-line">Want to get in touch? Click <a href="mailto:jmenichelli@gmail.com">here</a> to contact me via email.</p>
+          </article>
+        </section>
+      {%- endif -%}
+
+      {%- if type == 'post' -%}
+        <section class="section section__with-divider">
+          <article class="card">
+            <p class="card__tag-line">Do you want me to write for your publication? Click <a href="mailto:jmenichelli@gmail.com">here</a> to contact me via email</p>
+          </article>
+        </section>
+      {%- endif -%}
+    </main>
+      
+    {% include 'footer' %}
+  </body>
+</html>

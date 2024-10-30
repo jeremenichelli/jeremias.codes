@@ -1,0 +1,152 @@
+@layer highlighting {
+  /**
+   * Highlighting color pallette.
+   */
+  :root {
+    --highlighting--comment: hsl(240, 0%, 60%);
+    --highlighting--pragma--1: hsl(187, 69%, 68%);
+    --highlighting--pragma--2: hsl(240, 0%, 60%);
+    --highlighting--pragma--3: hsl(80, 76%, 53%);
+    --highlighting--pragma--4: hsl(260, 90%, 74%);
+    --highlighting--pragma--5: hsl(338, 85%, 58%);
+    --highlighting--pragma--6: var(--text--primary--inverted);
+    --highlighting--pragma--7: hsl(50, 90%, 70%);
+
+    &[data-theme='emerald'] {
+      --highlighting--comment: hsl(350, 0%, 60%);
+      --highlighting--pragma--1: hsl(174, 69.3%, 68%);
+      --highlighting--pragma--2: hsl(350, 0%, 60%);
+      --highlighting--pragma--3: hsl(174, 75.8%, 52.9%);
+      --highlighting--pragma--4: hsl(174, 89.5%, 73.9%);
+      --highlighting--pragma--5: hsl(174, 85%, 58%);
+      --highlighting--pragma--6: var(--text--primary--inverted);
+      --highlighting--pragma--7: hsl(69, 89.5%, 70%);
+    }
+
+    &[data-theme='lavender'] {
+      --highlighting--comment: hsl(350, 0%, 60%);
+      --highlighting--pragma--1: hsl(350, 69%, 68%);
+      --highlighting--pragma--2: hsl(350, 0%, 60%);
+      --highlighting--pragma--3: hsl(336, 60%, 65%);
+      --highlighting--pragma--4: hsl(350, 90%, 74%);
+      --highlighting--pragma--5: hsl(230, 72%, 70%);
+      --highlighting--pragma--6: var(--text--primary--inverted);
+      --highlighting--pragma--7: hsl(350, 90%, 80%);
+    }
+
+    &[data-theme='konami'] {
+      --highlighting--comment: hsl(0, 0%, 60%);
+      --highlighting--pragma--1: hsl(2.5, 69.3%, 68%);
+      --highlighting--pragma--2: hsl(0, 0%, 60%);
+      --highlighting--pragma--3: hsl(12, 72%, 60%);
+      --highlighting--pragma--4: hsl(2.5, 89.5%, 73.9%);
+      --highlighting--pragma--5: hsl(12, 50%, 90.2%);
+      --highlighting--pragma--6: var(--text--primary--inverted);
+      --highlighting--pragma--7: hsl(12, 89.5%, 78%);
+    }
+
+    &[data-theme='hedgehog'] {
+      --highlighting--comment: hsl(0, 0%, 60%);
+      --highlighting--pragma--1: hsl(220, 69.3%, 68%);
+      --highlighting--pragma--2: hsl(0, 0%, 60%);
+      --highlighting--pragma--3: hsl(220, 75.8%, 87.9%);
+      --highlighting--pragma--4: hsl(220, 89.5%, 73.9%);
+      --highlighting--pragma--5: hsl(0, 85%, 60%);
+      --highlighting--pragma--6: var(--text--primary--inverted);
+      --highlighting--pragma--7: hsl(60, 89.5%, 70%);
+    }
+  }
+
+  code[class*='language'] {
+    .comment {
+      color: var(--highlighting--comment);
+    }
+
+    .operator,
+    .boolean {
+      color: var(--highlighting--pragma--4);
+    }
+
+    .number {
+      color: var(--highlighting--pragma--7);
+    }
+
+    .cdata,
+    .doctype,
+    .prolog {
+      color: var(--highlighting--pragma--2);
+    }
+
+    .attr-name,
+    .string,
+    .url {
+      color: var(--highlighting--pragma--7);
+    }
+
+    .atrule,
+    .attr-value,
+    .keyword,
+    .important,
+    .deleted,
+    .selector {
+      color: var(--highlighting--pragma--5);
+    }
+
+    .regex,
+    .statement {
+      color: var(--highlighting--pragma--1);
+    }
+
+    .placeholder,
+    .variable {
+      color: var(--highlighting--pragma--6);
+    }
+
+    .punctuation {
+      color: var(--highlighting--pragma--2);
+    }
+
+    .inserted {
+      color: var(--highlighting--pragma--3);
+    }
+  }
+
+  code.language-css,
+  code.language-less,
+  code.language-scss,
+  code.language-sass,
+  code.language-html .style {
+    .selector {
+      color: var(--highlighting--pragma--5);
+    }
+
+    .property {
+      color: var(--highlighting--pragma--1);
+    }
+  }
+
+  code.language-json {
+    .operator {
+      color: var(--highlighting--pragma--2);
+    }
+  }
+
+  code.language-html {
+    .tag {
+      color: var(--highlighting--pragma--5);
+    }
+
+    .attr-name {
+      color: var(--highlighting--pragma--3);
+    }
+
+    .attr-value {
+      color: var(--highlighting--pragma--7);
+    }
+
+    .script,
+    .keyword {
+      color: var(--highlighting--pragma--1);
+    }
+  }
+}

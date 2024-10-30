@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ url }}"
+  },
+  "headline": "{{ title }}",
+  "description": "{{ excerpt }}",
+  "image": "{{ site.logo }}",
+  "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+  {% if page.data.lastModified %}
+  "dateModified": "{{ page.data.lastModified | date: '%Y-%m-%d' }}",
+  {% else %}
+  "dateModified": "{{ page.date | date: '%Y-%m-%d' }}",
+  {% endif %}
+  "author": {
+    "@type": "Person",
+    "name": "Jeremias Menichelli"
+  },
+    "publisher": {
+    "@type": "Organization",
+    "name": "Jeremias Menichelli",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.author.image }}"
+    }
+  }
+}

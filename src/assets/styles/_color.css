@@ -1,0 +1,67 @@
+@layer theme {
+  /*
+	 * Default theme under no data selector to provide an out-of-the-box
+	 * theme functionality. Also fallsback in case of a theme error. */
+  :root {
+    color-scheme: light dark;
+
+    --accent: light-dark(hsl(240, 84%, 60%), hsl(240, 100%, 78%));
+    --surface--base: light-dark(hsl(240, 0%, 100%), hsl(240, 78%, 4%));
+    --surface--inverted: light-dark(hsl(240, 78%, 4%), hsl(240, 17%, 11%));
+    --text--primary: light-dark(hsl(240, 78%, 4%), hsl(240, 0%, 100%));
+    --text--secondary: light-dark(hsl(240, 9%, 35%), hsl(240, 35%, 91%));
+    --divider: light-dark(hsl(240, 9%, 35%), hsl(240, 35%, 91%));
+    --text--primary--inverted: hsl(240, 0%, 100%);
+    --link: var(--accent);
+
+    &[data-theme='emerald'] {
+      --accent: hsl(36, 93%, 68%);
+      --surface--base: hsl(178, 100%, 14%);
+      --surface--inverted: hsl(178, 78%, 10%);
+      --text--primary: hsl(60, 100%, 100%);
+      --text--secondary: hsl(163, 29%, 75%);
+      --divider: hsl(163, 29%, 75%);
+      --text--primary--inverted: hsl(60, 100%, 100%);
+    }
+
+    &[data-theme='lavender'] {
+      --accent: hsl(350, 60%, 84%);
+      --surface--base: hsl(230, 33.3%, 20%);
+      --surface--inverted: hsl(230, 33.3%, 12%);
+      --text--primary: hsl(240, 0%, 100%);
+      --text--secondary: hsl(230, 58%, 82%);
+      --divider: hsl(230, 57%, 82%);
+      --text--primary--inverted: hsl(240, 0%, 100%);
+    }
+
+    &[data-theme='konami'] {
+      --link: hsl(2.5, 72%, 47%);
+      --accent: hsl(12, 84%, 58%);
+      --surface--base: hsl(30, 30%, 96%);
+      --surface--inverted: hsl(0, 0%, 0%);
+      --text--primary: hsl(0, 0%, 0%);
+      --text--secondary: hsl(2.5, 4%, 24%);
+      --divider: hsl(180, 4%, 14%);
+      --text--primary--inverted: hsl(0, 0%, 100%);
+    }
+
+    &[data-theme='hedgehog'] {
+      --link: hsl(60, 100%, 75%);
+      --accent: hsl(0, 100%, 50%);
+      --surface--base: hsl(220, 80%, 27%);
+      --surface--inverted: hsl(220, 80%, 20%);
+      --text--primary: hsl(60, 100%, 95%);
+      --text--secondary: hsl(60, 100%, 95%);
+      --divider: hsl(60, 50%, 85%);
+      --text--primary--inverted: hsl(60, 100%, 95%);
+    }
+  }
+
+  html[data-theme='light'] {
+    color-scheme: light;
+  }
+
+  html[data-theme='dark'] {
+    color-scheme: dark;
+  }
+}

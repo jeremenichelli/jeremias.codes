@@ -1,0 +1,97 @@
+<head>
+  {% capture url %}{{ page.url | prepend: site.url }}{% endcapture %}
+  
+  {% capture metaTitle %}{{ title | append: ' — jeremias.codes' }}{% endcapture %}
+
+  {% if excerpt %}
+    {% capture description %}{{ excerpt | unmarkdownify }}{% endcapture %}
+  {% else %}
+    {% capture description %}{{ site.description }}{% endcapture %}
+  {% endif %}
+
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="generator" content="Eleventy v3.0.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="{{ description }}">
+  {% if type == 'post' %}
+    <meta name="author" content="{{ site.author.name }}">
+  {% endif %}
+  <title>{{ metaTitle }}</title>
+  <link rel="alternate" href="{{ '/feed.xml' | prepend: site.url }}" title="{{ site.title }}" type="application/atom+xml">
+
+  
+  <!-- inline scripts -->
+  {% script 'inline.js' 'inline' %}
+
+  <!-- inline styles -->
+  {% style 'main.css' %}
+
+  <!-- preload font files, empty crossorigin attribute added to prevent Chrome from complaining -->
+  <link rel="preload" href="/assets/fonts/SF-Pro-Display-Regular-subset.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="/assets/fonts/SF-Pro-Display-RegularItalic-subset.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="/assets/fonts/SF-Pro-Display-Bold-subset.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="/assets/fonts/SF-Pro-Display-Black-subset.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="/assets/fonts/SF-Pro-Display-BlackItalic-subset.woff2" as="font" type="font/woff2" crossorigin="">
+
+  <!-- deferred scripts -->
+  {% script 'main.js' 'defer' 'fetchpriority=high'  %}
+  {% script 'instant-page.js' 'defer' 'fetchpriority=low' %}
+
+  <!-- favicon definitions -->
+  <link rel="icon" type="image/png" href="/assets/favicons/favicon-48x48.png" sizes="48x48" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Jeremias Menichelli" />
+  <link rel="manifest" href="/assets/favicons/site.webmanifest" />
+
+  {% if external_url %}
+    <link rel="canonical" href="{{ external_url }}">
+  {% else %}
+    <link rel="canonical" href="{{ url }}">
+  {% endif %}
+
+  <!-- open graph meta -->
+  <meta property="og:title" content="{{ metaTitle }}">
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:url" content="{{ url }}">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="{{ site.author.image }}">
+  <meta property="og:logo" content="{{ site.logo }}" />      
+  <meta property="og:image:height" content="800" />
+  <meta property="og:image:width" content="800" />
+  
+  {% if type == 'post' %}
+    <meta property="og:type" content="article">
+    <meta property="og:author" content="{{ site.author.name }}">
+    <meta property="article:published_time" content="{{ page.date | date_to_iso }}">
+
+    {% if if page.data.lastModified %}
+      {% capture lastModified %}{{ page.data.lastModified }}{% endcapture %}
+    {% else %}
+      {% capture lastModified %}{{ page.date }}{% endcapture %}
+    {% endif %}
+    <meta property="article:modified_time" content="{{ lastModified | date_to_iso }}">
+  {% else %}
+    <meta property="og:type" content="website">
+  {% endif %}
+
+  <!-- twitter card meta -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@jeremenichelli">
+  <meta name="twitter:creator" content="@jeremenichelli" />
+  <meta name="twitter:title" content="{{ metaTitle }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:url" content="{{ url }}">
+  <meta name="twitter:image" content="{{ site.logo }}">
+
+  <!-- structured data -->
+  <script type="application/ld+json">
+  {% if type == 'post' %}
+    {% include 'structured-data/post' %}
+  {% else %}
+    {% include 'structured-data/page' %}
+  {% endif %}
+  </script>
+</head>

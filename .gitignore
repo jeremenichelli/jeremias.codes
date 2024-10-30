@@ -1,0 +1,11 @@
+# Node modules
+node_modules
+
+# Output directory
+_site
+
+# Ignore error logs
+*.log
+
+# MACS
+.DS_Store

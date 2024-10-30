@@ -1,0 +1,6 @@
+{
+	"tags": ["post"],
+	"type": "post",
+	"layout": "post",
+	"permalink": "/{{ page.date | date: '%Y/%m' }}/{{ page.fileSlug }}/index.html"
+}

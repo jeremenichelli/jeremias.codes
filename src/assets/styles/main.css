@@ -1,0 +1,433 @@
+@layer fonts, theme, highlighting, setup;
+
+@import './_fonts.css';
+@import './_color.css';
+@import './_radius.css';
+@import './_sizing.css';
+@import './_spacing.css';
+@import './_typography.css';
+@import './_setup.css';
+@import './_highlighting.css';
+
+/* TAGS AND GENERAL */
+main {
+  @media (--big-devices) {
+    margin-block-start: var(--spacing--medium);
+  }
+}
+
+footer {
+  margin-block-start: var(--spacing--medium);
+}
+
+/* SECTIONS */
+.section {
+  max-width: var(--sizing--section);
+  margin-inline: var(--spacing--base);
+  padding-block: var(--spacing--base);
+
+  @media (--big-devices) {
+    padding: var(--spacing--base);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  & + .section {
+    margin-block-start: var(--spacing--small);
+  }
+}
+
+.section__with-divider {
+  margin-block-start: var(--spacing--small);
+  padding-block-start: var(--spacing--medium);
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-color: var(--divider);
+}
+
+.section__title {
+  font-size: var(--typography--08);
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: var(--letter-spacing--small);
+
+  /* "pretty" is still not supported, so balance is a fallback. */
+  text-wrap: balance;
+  text-wrap: pretty;
+}
+
+.section__subtitle {
+  color: var(--text--secondary);
+  font-size: var(--typography--07);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: var(--letter-spacing--small);
+  margin: 0;
+}
+
+/* POST RELATED ELEMENTS */
+.post__subtitle {
+  font-size: var(--typography--02);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-block: var(--spacing--xsmall) 0;
+  letter-spacing: var(--letter-spacing--small);
+  text-transform: uppercase;
+}
+
+.post__date {
+  color: var(--text--secondary);
+}
+
+.post__content {
+  > *:first-child {
+    margin-block-start: 0;
+  }
+
+  p,
+  ul,
+  ol,
+  pre {
+    margin-block: var(--spacing--content) 0;
+  }
+
+  ul {
+    padding-inline-start: var(--spacing--base);
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 900;
+    letter-spacing: var(--letter-spacing--small);
+    line-height: 1.15;
+    /* "pretty" is still not supported, so balance is a fallback. */
+    text-wrap: balance;
+    text-wrap: pretty;
+  }
+
+  h2 {
+    font-size: var(--typography--05);
+    margin-block: var(--spacing--medium) var(--spacing--base);
+  }
+
+  h3 {
+    font-size: var(--typography--04);
+    margin-block: var(--spacing--content);
+
+    @media (--big-devices) {
+      margin-block: var(--spacing--base) var(--spacing--content);
+    }
+  }
+
+  h4,
+  h5 {
+    font-size: var(--typography--03);
+    margin-block: var(--spacing--content);
+
+    @media (--big-devices) {
+      margin-block: var(--spacing--base) var(--spacing--content);
+    }
+  }
+
+  code {
+    background-color: var(--surface--inverted);
+    border-radius: var(--radius--small);
+    color: var(--text--primary--inverted);
+    font-family: Menlo, Consolas, Monaco, monospace;
+    font-size: var(
+      --typography--code
+    ); /* Font size locked in this size out of scale. */
+    padding: 3px;
+    word-break: keep-all;
+  }
+
+  pre {
+    background-color: var(--surface--inverted);
+    color: var(--text--primary--inverted);
+    font-size: var(
+      --typography--code
+    ); /* Font size locked in this size out of scale. */
+    margin-inline-start: calc(var(--spacing--base) * -1);
+    overflow: auto;
+    padding: var(--spacing--base) 0;
+    tab-size: 2;
+    width: 100vw;
+
+    @media (--big-devices) {
+      border-radius: var(--radius--medium);
+      width: var(--sizing--section);
+    }
+
+    code {
+      /* Reset styles for standalone code tags. */
+      background-color: transparent;
+      border-radius: 0;
+
+      /* Allow padding on horizontal overflow. */
+      display: inline-block;
+      padding: 0 var(--spacing--base);
+    }
+  }
+
+  .code-snippet-link {
+    text-align: center;
+    font-style: italic;
+    font-weight: 900;
+    font-size: var(--typography--01);
+  }
+
+  /* Codepen wrapper styles. */
+  .cp_embed_wrapper {
+    margin-block-start: var(--spacing--content);
+    margin-inline-start: calc(var(--spacing--base) * -1);
+    overflow: hidden;
+    width: 100vw;
+
+    @media (--big-devices) {
+      border-radius: var(--radius--medium);
+      width: var(--sizing--section);
+    }
+  }
+}
+
+/* LISTS */
+.list {
+  list-style: none;
+  padding: 0;
+  margin-block: 0;
+
+  &:not(:first-child) {
+    margin-block: var(--spacing--content) 0;
+
+    @media (--big-devices) {
+      margin-block: var(--spacing--base) 0;
+    }
+  }
+}
+
+.list__item {
+  margin-block: 0;
+
+  & + .list__item {
+    margin-block: var(--spacing--content) 0;
+
+    @media (--big-devices) {
+      margin-block: var(--spacing--base) 0;
+    }
+  }
+}
+
+.list__title {
+  font-size: var(--typography--03);
+  line-height: 1.05;
+  font-weight: 900;
+  font-style: italic;
+  margin: 0;
+  max-width: 20rem;
+  /* "pretty" is still not supported, so balance is a fallback. */
+  text-wrap: balance;
+  text-wrap: pretty;
+}
+
+.list__title__link {
+  display: inline-block;
+}
+
+.list__subtitle {
+  line-height: 1.05;
+  color: var(--text--secondary);
+  font-weight: 900;
+  margin-block: var(--spacing--xsmall) 0;
+  text-transform: uppercase;
+}
+
+.list__host {
+  color: var(--text--primary);
+}
+
+/* CARDS */
+.card {
+  &:not(:first-child) {
+    margin-block-start: var(--spacing--base);
+  }
+}
+
+.card__quote {
+  line-height: 1.35;
+  font-size: var(--typography--01);
+  font-weight: 400;
+  margin: 0;
+  text-wrap: pretty;
+
+  @media (--big-devices) {
+    font-size: var(--typography--02);
+  }
+}
+
+.card__tag-line {
+  margin-block: 0;
+  line-height: 1.35;
+  font-weight: 900;
+  font-size: var(--typography--02);
+  letter-spacing: var(--letter-spacing--small);
+
+  .card__quote + & {
+    margin-block: var(--spacing--xsmall) 0;
+  }
+}
+
+/* THEME MENU*/
+.theme-menu {
+	--height: 0;
+	--opacity: 0;
+	--menu-transition-duration: 175ms;
+	--menu-transition-height-delay: 0ms;
+	--menu-transition-opacity-delay: 0ms;
+	
+	&[aria-hidden="false"] {
+		--menu-transition-opacity-delay: var(--menu-transition-duration);
+	}
+	
+	&[aria-hidden="true"] {
+		--menu-transition-height-delay: var(--menu-transition-duration);
+
+	}
+
+  display: flex;
+  height: var(--height);
+  opacity: var(--opacity);
+	transition: height var(--menu-transition-duration) ease-in-out var(--menu-transition-height-delay), 
+	opacity var(--menu-transition-duration) ease-in-out var(--menu-transition-opacity-delay);
+}
+
+.theme-menu__group {
+  gap: var(--spacing--small);
+  margin-block: 0;
+  margin-inline-start: auto;
+  padding: var(--spacing--base);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+
+	@media (--big-devices) {
+		padding-block-end: 0;
+	}
+}
+
+.theme-menu__item {
+  border-radius: var(--radius--small);
+  color: var(--link);
+  cursor: pointer;
+  font-size: var(--typography--01);
+  line-height: 1.05;
+  outline-offset: 4px;
+
+  &[aria-checked='true'] {
+    color: var(--text--primary);
+  }
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline solid 2px;
+    text-underline-offset: 2px;
+    text-decoration-skip-ink: all;
+  }
+}
+
+/* NAVIGATION */
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: var(--spacing--base);
+  position: relative;
+  gap: var(--spacing--small);
+
+  @media (--big-devices) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+  }
+}
+
+.navigation__link {
+  color: var(--link);
+  font-size: var(--typography--01);
+  line-height: 1.05;
+
+  &:focus-visible {
+    outline-offset: 4px;
+  }
+
+  &[aria-current='page'],
+  &:is(.current) {
+    color: var(--text--primary);
+  }
+}
+
+.navigation__skip-link {
+  color: var(--text--secondary);
+
+  /* Technic to show "skip navigation" link on focus. */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+
+  &:focus-visible {
+    clip: auto;
+    height: auto;
+    width: auto;
+    overflow: initial;
+    position: static;
+  }
+
+  @media (--not-big-devices) {
+    display: none;
+  }
+}
+
+.navigation__theme-button {
+  border: none;
+  border-radius: var(--radius--full);
+  background-color: var(--accent);
+  cursor: pointer;
+  height: var(--sizing--theme-button);
+  width: var(--sizing--theme-button);
+
+  &:not([tabindex='-1']):active {
+    transform: scale(0.95);
+  }
+
+  @media (--not-big-devices) {
+    position: absolute;
+    right: var(--spacing--base);
+    top: var(--spacing--base);
+  }
+
+  @media (--big-devices) {
+    /* Add extra inline spacing on top of flex parent gap. */
+    margin-inline-start: var(--spacing--small);
+  }
+}
+
+/* CHEAT CODES */
+[data-value='konami'],
+[data-value='hedgehog'] {
+  display: none;
+}
+
+:root {
+  &[data-konami-unlocked] [data-value='konami'] {
+    display: block;
+  }
+
+  &[data-hedgehog-unlocked] [data-value='hedgehog'] {
+    display: block;
+  }
+}
