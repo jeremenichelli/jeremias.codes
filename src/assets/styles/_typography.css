@@ -32,7 +32,7 @@
     }
 
     /* Letter spacings are relative to the font size of the element */
-    --letter-spacing--small: -0.01em;
+    --letter-spacing--small: -0.005em;
 
     /* Leadings */
     --leading--base: 1.35;
