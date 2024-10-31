@@ -41,4 +41,47 @@
     src: url('/assets/fonts/SF-Pro-Display-BlackItalic-subset.woff2')
       format('woff2');
   }
+
+  @font-face {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/assets/fonts/SF-Pro-Text-Regular-subset.woff2')
+      format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SF Pro Text';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/assets/fonts/SF-Pro-Text-RegularItalic-subset.woff2')
+      format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/assets/fonts/SF-Pro-Text-Bold-subset.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url('/assets/fonts/SF-Pro-Text-Black-subset.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'SF Pro Text';
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: url('/assets/fonts/SF-Pro-Text-BlackItalic-subset.woff2')
+      format('woff2');
+  }
 }

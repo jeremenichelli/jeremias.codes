@@ -48,7 +48,7 @@ footer {
 .section__title {
   font-size: var(--typography--08);
   font-weight: 900;
-  line-height: 1.05;
+  line-height: var(--leading--compact);
   margin: 0;
   letter-spacing: var(--letter-spacing--small);
 
@@ -61,7 +61,7 @@ footer {
   color: var(--text--secondary);
   font-size: var(--typography--07);
   font-weight: 900;
-  line-height: 1.05;
+  line-height: var(--leading--compact);
   letter-spacing: var(--letter-spacing--small);
   margin: 0;
 }
@@ -70,7 +70,7 @@ footer {
 .post__subtitle {
   font-size: var(--typography--02);
   font-weight: 900;
-  line-height: 1.05;
+  line-height: var(--leading--compact);
   margin-block: var(--spacing--xsmall) 0;
   letter-spacing: var(--letter-spacing--small);
   text-transform: uppercase;
@@ -81,6 +81,8 @@ footer {
 }
 
 .post__content {
+  font-size: var(--typography--content);
+
   > *:first-child {
     margin-block-start: 0;
   }
@@ -96,6 +98,10 @@ footer {
     padding-inline-start: var(--spacing--base);
   }
 
+  li + li {
+    margin-block-start: var(--spacing--xsmall);
+  }
+
   h2,
   h3,
   h4,
@@ -103,7 +109,7 @@ footer {
   h6 {
     font-weight: 900;
     letter-spacing: var(--letter-spacing--small);
-    line-height: 1.15;
+    line-height: var(--leading--sub);
     /* "pretty" is still not supported, so balance is a fallback. */
     text-wrap: balance;
     text-wrap: pretty;
@@ -223,7 +229,7 @@ footer {
 
 .list__title {
   font-size: var(--typography--03);
-  line-height: 1.05;
+  line-height: var(--leading--compact);
   font-weight: 900;
   font-style: italic;
   margin: 0;
@@ -238,7 +244,7 @@ footer {
 }
 
 .list__subtitle {
-  line-height: 1.05;
+  line-height: var(--leading--compact);
   color: var(--text--secondary);
   font-weight: 900;
   margin-block: var(--spacing--xsmall) 0;
@@ -257,7 +263,7 @@ footer {
 }
 
 .card__quote {
-  line-height: 1.35;
+  line-height: var(--leading--base);
   font-size: var(--typography--01);
   margin: 0;
   text-wrap: pretty;
@@ -268,8 +274,9 @@ footer {
 }
 
 .card__tag-line {
+  display: block;
   margin-block: 0;
-  line-height: 1.35;
+  line-height: var(--leading--sub);
   font-weight: 900;
   font-size: var(--typography--02);
   letter-spacing: var(--letter-spacing--small);
@@ -325,7 +332,7 @@ footer {
   color: var(--link);
   cursor: pointer;
   font-size: var(--typography--01);
-  line-height: 1.05;
+  line-height: var(--leading--compact);
   outline-offset: 4px;
 
   &[aria-checked='true'] {
@@ -359,7 +366,7 @@ footer {
 .navigation__link {
   color: var(--link);
   font-size: var(--typography--01);
-  line-height: 1.05;
+  line-height: var(--leading--compact);
 
   &:focus-visible {
     outline-offset: 4px;
