@@ -23,6 +23,14 @@ const unlockTheme = (theme) => {
   setTheme(theme);
 };
 
+const lockTheme = (theme) => {
+  /**
+   * Set unlocked state.
+   */
+  delete document.documentElement.dataset[`${theme}Unlocked`]
+  storage.removeItem(theme, true);
+};
+
 const setRandomTheme = () => {
   const currentTheme = document.documentElement.dataset.theme;
   const availableThemes = getVisibleThemeOptions()
@@ -36,11 +44,8 @@ const setRandomTheme = () => {
 };
 
 const resetAllCheatCodes = () => {
-  delete document.documentElement.dataset.konamiUnlocked;
-  delete document.documentElement.dataset.hedgehogUnlocked;
-
-  storage.removeItem('konami');
-  storage.removeItem('hedgehog');
+  lockTheme('konami');
+  lockTheme('hedgehog');
 
   setTheme('system');
 };
@@ -82,6 +87,31 @@ const cheatCodes = [
   }
 ];
 
+/**
+ * Update locked themes state on `localStorage` event.
+ */
+window.addEventListener('storage', function (event) {
+
+  if (event.key === 'konami') {
+    if (event.newValue === 'true') {
+      unlockTheme('konami')
+    } else {
+      lockTheme('konami')
+    }
+  }
+
+  if (event.key === 'hedgehog') {
+    if (event.newValue === 'true') {
+      unlockTheme('hedgehog')
+    } else {
+      lockTheme('hedgehog')
+    }
+  }
+});
+
+/**
+ * Listen to key presses and detect cheat codes.
+ */
 document.body.addEventListener('keydown', (event) => {
   const now = performance.now();
 

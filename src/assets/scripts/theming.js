@@ -28,9 +28,18 @@ export const getVisibleThemeOptions = () => {
 };
 
 /**
+ * This flag prevents multiple menu transitions from firing.
+ */
+let isMenuAnimating = false
+
+/**
  * Opens theme menu.
  */
 const openThemeMenu = async () => {
+  if (isMenuAnimating) return false
+
+  isMenuAnimating = true
+
   /**
    * When transition ends, set height to auto to adapt to DOM mutations
    * and later focus on first theme option.
@@ -44,6 +53,8 @@ const openThemeMenu = async () => {
       focusedThemeOption?.focus();
 
       themeMenu.removeEventListener('transitionend', onTransitionEnd);
+
+      isMenuAnimating = false
     }
   };
 
@@ -64,6 +75,10 @@ const openThemeMenu = async () => {
  * Closes theme menu.
  */
 const closeThemeMenu = async () => {
+  if (isMenuAnimating) return false
+
+  isMenuAnimating = true
+
   /**
    * When height transition ends, focus on back to the theme menu button.
    */
@@ -72,6 +87,8 @@ const closeThemeMenu = async () => {
       themeButton?.focus();
 
       themeMenu.removeEventListener('transitionend', onTransitionEnd);
+
+      isMenuAnimating = false
     }
   };
 
@@ -173,6 +190,10 @@ getThemeOptions().forEach((option) => {
  * Update theme on `localStorage` event.
  */
 window.addEventListener('storage', function (event) {
+
+  /**
+   * Handle theme changes across tabs.
+   */
   if (event.key === THEME_KEY) {
     setTheme(event.newValue);
   }
