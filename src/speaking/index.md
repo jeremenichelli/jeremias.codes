@@ -7,12 +7,12 @@ tag_line: In the meantime my community efforts go to being the best ambassador p
 ---
 
 <div class="section section__with-divider">
-  <ol class="list" role="list">
+  <ol class="list" role="list" aria-label="Talks and workshops">
     {%- for talk in talks -%}
       <li class="list__item" role="listitem">
-        <h3 class="list__title">
+        <h2 class="list__title">
           <a class="list__title__link" href="{{ talk.url }}" target="_blank" rel="noopener noreferrer">{{ talk.title }}</a>
-        </h3>
+        </h2>
         <p class="list__subtitle">
           <time datetime="{{ talk.date | date: '%Y-%m-%d' }}">{{ talk.date | date: '%b %d, %Y' }}</time> <span class="list__host">For {{ talk.event }}</span>
         </p>

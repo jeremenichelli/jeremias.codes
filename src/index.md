@@ -11,7 +11,7 @@ tag_line: Check all my past and current projects in my [about](/about) page.
   <header>
       <h2 class="section__title">Writing</h2>
   </header>
-  <ol class="list" role="list">
+  <ol class="list" role="list" aria-label="Articles">
     {%- for post in collections.latestPosts -%}
       <li class="list__item" role="listitem">
         <h3 class="list__title">

@@ -7,12 +7,12 @@ tag_line: Do you want me to write for your publication? Click [here](mailto:jmen
 ---
 
 <div class="section section__with-divider">
-  <ol class="list" role="list">
+  <ol class="list" role="list" aria-label="Articles">
     {%- for post in collections.posts -%}
       <li class="list__item" role="listitem">
-        <h3 class="list__title">
+        <h2 class="list__title">
           <a class="list__title__link" href="{{ post.url }}">{{ post.data.title }}</a>
-        </h3>
+        </h2>
         <p class="list__subtitle">
           <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d, %Y' }}</time>
           {%- if post.data.host -%}
