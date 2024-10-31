@@ -11,7 +11,7 @@ It's a static site generator written in Ruby, the programming language that will
 
 It does use some other languages and tools that give us the power to build custom and more complex stuff, the good part is that these technologies are not hard to learn and they are well documented.
 
-For configuration and data files [YAML](wikipedia.org/wiki/YAML) is used, though you're not going to manipulate this type of files very often, probably just at the beginning and when setting data files.
+For configuration and data files [YAML](//wikipedia.org/wiki/YAML) is used, though you're not going to manipulate this type of files very often, probably just at the beginning and when setting data files.
 
 For templating, **Liquid**. Never heard of it? I recommend [Shopify reference sheet for designers](//github.com/Shopify/liquid/wiki/Liquid-for-Designers/). If you're familiar with other template engines it won't be hard at all to get used to it. The knowledge you will need on this will depend on how complex the layouts you want to build are.
 

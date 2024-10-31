@@ -41,7 +41,7 @@ Angular 2 documentation encourages you to use [TypeScript](//www.typescriptlang.
 
 {% blockquote 'First strong decision: TypeScript' %}
 
-Instead of being a class we can extend from, `Component` is a decorator used to modify the component's behavior and creation. [Decorators](decorators) are part of the ES2016 specification and they are already available in TypeScript.
+Instead of being a class we can extend from, `Component` is a decorator used to modify the component's behavior and creation. [Decorators][decorators] are part of the ES2016 specification and they are already available in TypeScript.
 
 Inside of that decorator we indicate the files where the styles and template for our component will be, or they can also be placed in line.
 

@@ -38,7 +38,7 @@ And guess what? It didn't work. There was still a gap where invisible text was s
 
 ### Solutions available today
 
-A couple of developers noticed these issues and created libraries that provide events that truly indicate the loading and active state of the font. The first one, [fontfaceonload](<(//github.com/zachleat/fontfaceonload)>) by [Zach Leatherman](//twitter.com/zachleat).
+A couple of developers noticed these issues and created libraries that provide events that truly indicate the loading and active state of the font. The first one, [fontfaceonload](//github.com/zachleat/fontfaceonload) by [Zach Leatherman](//twitter.com/zachleat).
 
 You still need to add your fonts via `@font-face` declaration or include the `link` tag in your page and later listen to a specific family of fonts to load.
 
@@ -65,7 +65,7 @@ observer.check().then(function () {
 
 You might have noticed that this library uses a `check` method and the reserved word `then` as the Promise API does to run code after the font is ready.
 
-This last one is highly recommended if you're loading a font from Google, Typekit or Fontdeck. It's actually co-developed by [Typekit](//github.com/typekit) and Google developers and its name is [webfontloader](/github.com/typekit/webfontloader).
+This last one is highly recommended if you're loading a font from Google, Typekit or Fontdeck. It's actually co-developed by [Typekit](//github.com/typekit) and Google developers and its name is [webfontloader](//github.com/typekit/webfontloader).
 
 You won't need a `@font-face` declaration in your styles here, just JavaScript.
 
