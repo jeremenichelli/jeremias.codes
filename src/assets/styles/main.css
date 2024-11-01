@@ -247,7 +247,7 @@ footer {
   line-height: var(--leading--compact);
   color: var(--text--secondary);
   font-weight: 900;
-  margin-block: var(--spacing--xsmall) 0;
+  margin-block: var(--spacing--xxsmall) 0;
   text-transform: uppercase;
 }
 

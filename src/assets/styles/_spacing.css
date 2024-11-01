@@ -1,6 +1,7 @@
 @layer theme {
   :root {
     /* SPACING */
+    --spacing--xxsmall: 0.25rem; /* 4px */
     --spacing--xsmall: 0.5rem; /* 8px */
     --spacing--small: 0.75rem; /* 10px */
     --spacing--base: 1rem; /* 16px */
@@ -9,6 +10,7 @@
     --spacing--content: 1.5rem; /* Outside scale, only for inner page content. */
 
     @media (--big-devices) {
+      --spacing--xxsmall: 0.25rem; /* 4.5px */
       --spacing--xsmall: 0.5rem; /* 9px */
       --spacing--small: 1rem; /* 18px */
       --spacing--base: 2rem; /* 36px */

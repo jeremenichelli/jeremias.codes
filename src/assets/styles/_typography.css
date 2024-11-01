@@ -17,7 +17,7 @@
     --typography--08: 2.281rem; /* Titles */
 
     --typography--code: 15px; /* Pinned value for code font family */
-    --typography--content: 1.1rem; /* Increased value for post content, this is a fix for SF Pro export condenscing at smaller sizes than 20 */
+    --typography--content: 1.1rem; /* Increased value for post content, this is a fix for SF Pro export condenscing at smaller sizes than 20, pretty much a hack */
 
     @media (--big-devices) {
       --typography--00: 1rem;
