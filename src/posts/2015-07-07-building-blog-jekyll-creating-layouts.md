@@ -87,7 +87,7 @@ Pretty easy to understand. We're going to call this layout `default.html`, but i
       <p class="post-date">{% raw %}{{ page.date }}{% endraw %}</p>
     </div>
     <h1 class="post-title">{{ page.title}}</h1>
-    <article class="post-content">{% raw %}{{ content }}{% endraw %}</div>
+    <div class="post-content">{% raw %}{{ content }}{% endraw %}</div>
   </body>
 
   {% raw %}{% include footer.html %}{% endraw %}

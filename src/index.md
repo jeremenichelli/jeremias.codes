@@ -26,7 +26,7 @@ tag_line: Check all my past and current projects in my [about](/about) page.
       </li>
     {%- endfor -%}
   </ol>
-  <article class="card">
+  <div class="card">
     <p class="card__tag-line">See the full list of <a href="/writing">articles here</a>.</p>
   </div>
 </div>
