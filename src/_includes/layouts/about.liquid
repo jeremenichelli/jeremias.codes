@@ -1,0 +1,23 @@
+---
+layout: base
+---
+
+<div class="section section__with-divider post__content">
+  {{ content }}
+</div>
+
+
+<div class="section section__with-divider">
+  <header>
+      <h2 class="section__title" tabindex="-1" id="timeline"><a href="/about/#timeline" tabindex="-1" aria-hidden="true">#</a> Timeline</h2>
+  </header>
+  <ol class="list" role="list" aria-labelledby="recent-projects">
+    {%- for job in jobs -%}
+      <li class="list__item" role="listitem">
+        <h3 class="list__title">{{ job.title }}</h3>
+        <p class="list__subtitle"><span>{{ job.period }}</span>
+        &nbsp;<a href="{{ job.company_url }}" target="_blank" rel="noopener noreferrer">{{ job.company }}</a></p>
+      </li>
+    {%- endfor -%}
+  </ol>
+</div>

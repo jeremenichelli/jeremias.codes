@@ -4,14 +4,15 @@ type: home
 title: Jeremias Menichelli
 subtitle: curious mind, developer and writer
 excerpt: Over a decade building seamless web experiences. Web accessibility advocate. Technical lead behind award-winning sites. Design system tinkerer. Community and event ambassador.
-tag_line: Check all my past and current projects in my [about](/about) page.
+excerpt_2: Find out more about each of those skills, [accessibility](/about/#accessibility), [design systems](/about/#design-systems), [platform and developer experience](/about/#platform-and-developer-experience), [digital experiences and tech leading](/about/#digital-experiences-and-tech-leading) and [community](/about/#community) all in the about page.
+tag_line: You can also see a summary [timeline](/about/#timeline) of my past projects.
 ---
 
 <div class="section section__with-divider">
   <header>
-      <h2 class="section__title">Writing</h2>
+      <h2 class="section__title" id="latest-articles">Latest articles</h2>
   </header>
-  <ol class="list" role="list" aria-label="Articles">
+  <ol class="list" role="list" aria-labelledby="latest-articles">
     {%- for post in collections.latestPosts -%}
       <li class="list__item" role="listitem">
         <h3 class="list__title">

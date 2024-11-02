@@ -35,6 +35,7 @@ export default function eleventy(config) {
 
   /* LIQUID AND GLOBAL CONFIG */
   config.setQuietMode(true);
+  config.addLayoutAlias('about', 'layouts/about.liquid');
   config.addLayoutAlias('base', 'layouts/base.liquid');
   config.addLayoutAlias('post', 'layouts/post.liquid');
 
