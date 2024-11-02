@@ -4,7 +4,7 @@ type: home
 title: Jeremias Menichelli
 subtitle: curious mind, developer and writer
 excerpt: Over a decade building seamless web experiences. Web accessibility advocate. Technical lead behind award-winning sites. Design system tinkerer. Community and event ambassador.
-excerpt_2: Find out more about each of those skills, [accessibility](/about/#accessibility), [design systems](/about/#design-systems), [platform and developer experience](/about/#platform-and-developer-experience), [digital experiences and tech leading](/about/#digital-experiences-and-tech-leading) and [community](/about/#community) all in the about page.
+excerpt_2: Learn more about each of these skills &mdash; [accessibility](/about/#accessibility), [design systems](/about/#design-systems), [platform and developer experience](/about/#platform-and-developer-experience), [digital experiences and tech leading](/about/#digital-experiences-and-tech-leading) and [community](/about/#community) &mdash; in the about page.
 tag_line: You can also see a summary [timeline](/about/#timeline) of my past projects.
 ---
 
