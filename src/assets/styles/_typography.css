@@ -22,7 +22,7 @@
     @media (--big-devices) {
       --typography--00: 1rem;
       --typography--01: 1.125rem;
-      --typography--02: 1.266rem;
+      --typography--02: 1.22rem;
       --typography--03: 1.424rem;
       --typography--04: 1.602rem;
       --typography--05: 1.802rem;
@@ -32,11 +32,15 @@
     }
 
     /* Letter spacings are relative to the font size of the element */
-    --letter-spacing--small: -0.005em;
+    --letter-spacing--00: 0em;
+    --letter-spacing--list: 0.015em; /* Used for navigation links and theme menu options */
+    --letter-spacing--sub: 0.02em; /* Used for navigation links and theme menu options */
+    --letter-spacing--action: 0.02em; /* Used in list subtitles, subtitles and dates */
 
     /* Leadings */
-    --leading--base: 1.35;
-    --leading--sub: 1.15;
+    --leading--content: 1.65;
+    --leading--base: 1.45;
+    --leading--sub: 1.25;
     --leading--compact: 1.05;
   }
 }

@@ -27,7 +27,7 @@ const lockTheme = (theme) => {
   /**
    * Set unlocked state.
    */
-  delete document.documentElement.dataset[`${theme}Unlocked`]
+  delete document.documentElement.dataset[`${theme}Unlocked`];
   storage.removeItem(theme, true);
 };
 
@@ -91,20 +91,19 @@ const cheatCodes = [
  * Update locked themes state on `localStorage` event.
  */
 window.addEventListener('storage', function (event) {
-
   if (event.key === 'konami') {
     if (event.newValue === 'true') {
-      unlockTheme('konami')
+      unlockTheme('konami');
     } else {
-      lockTheme('konami')
+      lockTheme('konami');
     }
   }
 
   if (event.key === 'hedgehog') {
     if (event.newValue === 'true') {
-      unlockTheme('hedgehog')
+      unlockTheme('hedgehog');
     } else {
-      lockTheme('hedgehog')
+      lockTheme('hedgehog');
     }
   }
 });
