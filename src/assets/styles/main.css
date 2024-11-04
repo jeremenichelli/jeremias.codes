@@ -50,8 +50,6 @@ footer {
   font-weight: 900;
   line-height: var(--leading--compact);
   margin: 0;
-  letter-spacing: var(--letter-spacing--small);
-
   /* "pretty" is still not supported, so balance is a fallback. */
   text-wrap: balance;
   text-wrap: pretty;
@@ -62,7 +60,6 @@ footer {
   font-size: var(--typography--07);
   font-weight: 900;
   line-height: var(--leading--compact);
-  letter-spacing: var(--letter-spacing--small);
   margin: 0;
 }
 
@@ -71,8 +68,8 @@ footer {
   font-size: var(--typography--02);
   font-weight: 900;
   line-height: var(--leading--compact);
+  letter-spacing: var(--letter-spacing--sub);
   margin-block: var(--spacing--xsmall) 0;
-  letter-spacing: var(--letter-spacing--small);
   text-transform: uppercase;
 }
 
@@ -108,7 +105,6 @@ footer {
   h5,
   h6 {
     font-weight: 900;
-    letter-spacing: var(--letter-spacing--small);
     line-height: var(--leading--sub);
     /* "pretty" is still not supported, so balance is a fallback. */
     text-wrap: balance;
@@ -230,6 +226,7 @@ footer {
 .list__title {
   font-size: var(--typography--03);
   line-height: var(--leading--compact);
+  letter-spacing: var(--letter-spacing--list);
   font-weight: 900;
   font-style: italic;
   margin: 0;
@@ -247,6 +244,7 @@ footer {
   line-height: var(--leading--compact);
   color: var(--text--secondary);
   font-weight: 900;
+  letter-spacing: var(--letter-spacing--sub);
   margin-block: var(--spacing--xxsmall) 0;
   text-transform: uppercase;
 }
@@ -279,8 +277,6 @@ footer {
   line-height: var(--leading--sub);
   font-weight: 900;
   font-size: var(--typography--02);
-  letter-spacing: var(--letter-spacing--small);
-
   .card__quote + & {
     margin-block: var(--spacing--xsmall) 0;
   }
@@ -333,6 +329,7 @@ footer {
   cursor: pointer;
   font-size: var(--typography--01);
   line-height: var(--leading--compact);
+  letter-spacing: var(--letter-spacing--action);
   outline-offset: 4px;
 
   &[aria-checked='true'] {
@@ -367,6 +364,7 @@ footer {
   color: var(--link);
   font-size: var(--typography--01);
   line-height: var(--leading--compact);
+  letter-spacing: var(--letter-spacing--action);
 
   &:focus-visible {
     outline-offset: 4px;

@@ -22,8 +22,11 @@ UNICODES="U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000
 # pyftsubset "${BASE_DIR}/SF-Pro-Text-Black.otf" --output-file="${BASE_DIR}/SF-Pro-Text-Black-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
 # pyftsubset "${BASE_DIR}/SF-Pro-Text-BlackItalic.otf" --output-file="${BASE_DIR}/SF-Pro-Text-BlackItalic-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
 
-pyftsubset "${BASE_DIR}/SF-Pro-Display-Regular.otf" --output-file="${BASE_DIR}/SF-Pro-Display-Regular-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
-pyftsubset "${BASE_DIR}/SF-Pro-Display-RegularItalic.otf" --output-file="${BASE_DIR}/SF-Pro-Display-RegularItalic-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
-pyftsubset "${BASE_DIR}/SF-Pro-Display-Bold.otf" --output-file="${BASE_DIR}/SF-Pro-Display-Bold-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
-pyftsubset "${BASE_DIR}/SF-Pro-Display-Black.otf" --output-file="${BASE_DIR}/SF-Pro-Display-Black-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
-pyftsubset "${BASE_DIR}/SF-Pro-Display-BlackItalic.otf" --output-file="${BASE_DIR}/SF-Pro-Display-BlackItalic-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
+# pyftsubset "${BASE_DIR}/SF-Pro-Display-Regular.otf" --output-file="${BASE_DIR}/SF-Pro-Display-Regular-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
+# pyftsubset "${BASE_DIR}/SF-Pro-Display-RegularItalic.otf" --output-file="${BASE_DIR}/SF-Pro-Display-RegularItalic-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
+# pyftsubset "${BASE_DIR}/SF-Pro-Display-Bold.otf" --output-file="${BASE_DIR}/SF-Pro-Display-Bold-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
+# pyftsubset "${BASE_DIR}/SF-Pro-Display-Black.otf" --output-file="${BASE_DIR}/SF-Pro-Display-Black-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
+# pyftsubset "${BASE_DIR}/SF-Pro-Display-BlackItalic.otf" --output-file="${BASE_DIR}/SF-Pro-Display-BlackItalic-subset.woff2" --flavor="woff2" --no-hinting --desubroutinize --unicodes=$UNICODES
+
+pyftsubset "${BASE_DIR}/InterTight-Variable.ttf" --output-file="${BASE_DIR}/InterTight-Variable-subset.woff2" --flavor="woff2" --layout-features=$BASE_LAYOUT_FEATURES --no-hinting --desubroutinize --unicodes=$UNICODES
+pyftsubset "${BASE_DIR}/InterTight-Italic-Variable.ttf" --output-file="${BASE_DIR}/InterTight-Italic-Variable-subset.woff2" --flavor="woff2" --layout-features=$ITALIC_LAYOUT_FEATURES --no-hinting --desubroutinize --unicodes=$UNICODES

@@ -53,9 +53,9 @@
     /* Global default text styles. */
     background-color: var(--surface--base);
     color: var(--text--primary);
-    font-family: 'SF Pro', system-ui;
+    font-family: 'Inter Tight', system-ui;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: var(--leading--content);
 
     /**
 		 * Fixes enlarged text in iOS for pre/code elements.
@@ -109,7 +109,6 @@
     & .card__quote {
       color: var(--text--secondary);
       font-weight: 700;
-      letter-spacing: var(--letter-spacing--small);
     }
 
     @media (--big-devices) {
