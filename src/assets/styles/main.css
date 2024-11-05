@@ -11,6 +11,14 @@
 
 /* TAGS AND GENERAL */
 main {
+  /*
+   * After exporting SF Pro, there's a clear difference between the
+   * out-of-the-box "opsz" and size of the system-ui resolved SF font
+   * with the one provided by Apple, until I find a better font, this size
+   * adjustment will be needed.
+   */
+  font-size: var(--typography--content);
+
   @media (--big-devices) {
     margin-block-start: var(--spacing--medium);
   }
@@ -46,10 +54,27 @@ footer {
 }
 
 .section__title {
+  font-size: var(--typography--07);
+  font-weight: 900;
+  line-height: var(--leading--compact);
+  margin: 0;
+  letter-spacing: var(--letter-spacing--small);
+  scroll-margin-block-start: var(--spacing--small);
+  border-radius: var(--radius--small);
+  
+  /* "pretty" is still not supported, so balance is a fallback. */
+  text-wrap: balance;
+  text-wrap: pretty;
+}
+
+.section__title__main {
   font-size: var(--typography--08);
   font-weight: 900;
   line-height: var(--leading--compact);
   margin: 0;
+  scroll-margin-block-start: var(--spacing--small);
+  border-radius: var(--radius--small);
+  
   /* "pretty" is still not supported, so balance is a fallback. */
   text-wrap: balance;
   text-wrap: pretty;
@@ -78,7 +103,6 @@ footer {
 }
 
 .post__content {
-  font-size: var(--typography--content);
 
   > *:first-child {
     margin-block-start: 0;
@@ -106,6 +130,8 @@ footer {
   h6 {
     font-weight: 900;
     line-height: var(--leading--sub);
+    scroll-margin-block-start: var(--spacing--small);
+    border-radius: var(--radius--small);
     /* "pretty" is still not supported, so balance is a fallback. */
     text-wrap: balance;
     text-wrap: pretty;
@@ -266,6 +292,10 @@ footer {
   margin: 0;
   text-wrap: pretty;
 
+  & + .card__quote {
+    margin-block-start: var(--spacing--base);
+  }
+
   @media (--big-devices) {
     font-size: var(--typography--02);
   }
@@ -278,7 +308,7 @@ footer {
   font-weight: 900;
   font-size: var(--typography--02);
   .card__quote + & {
-    margin-block: var(--spacing--xsmall) 0;
+    margin-block: var(--spacing--small) 0;
   }
 }
 

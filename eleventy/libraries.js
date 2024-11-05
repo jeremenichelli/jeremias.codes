@@ -6,7 +6,7 @@ const markdownItAnchorOptions = {
   level: [2, 3, 4],
   permalink: markdownItAnchor.permalink.linkInsideHeader({
     placement: 'before',
-    class: 'post__heading',
+    class: '',
     renderAttrs: () => ({ tabindex: '-1', 'aria-hidden': 'true' })
   })
 };

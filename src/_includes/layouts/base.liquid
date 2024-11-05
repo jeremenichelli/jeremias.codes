@@ -11,23 +11,30 @@
 
     <main id="main" class="main" aria-label="Main content">
       <header class="section">
-        <h1 class="section__title">{{ title }}</h1>
+        <h1 class="section__title__main">{{ title }}</h1>
         {%- if subtitle -%}<p class="section__subtitle">{{ subtitle }}</p>{%- endif -%}
         {%- if type == 'post' -%}
           <p class="post__subtitle">
             <time class="post__date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%b %d, %Y' }}</time>
             {%- if host != null -%}
-              &nbsp;<span class="post__host">For <a href="{{ external_url }}">{{ host }}</a></span> 
+              &nbsp;<span class="post__host">For <a href="{{ external_url }}"  target="_blank" rel="noopener noreferrer">{{ host }}</a></span> 
             {%- endif -%}
           </p>
         {%- endif -%}
       </header>
 
       {%- if excerpt -%}
-      <div class="section">
+        <div class="section">
           <p class="card__quote">
             {{ excerpt | orphans | markdownify }}  
           </p>
+
+          {%- if excerpt_2 -%}
+            <p class="card__quote">
+            {{ excerpt_2 | orphans | markdownify }}  
+          </p>
+          {%- endif -%}
+
           {%- if tag_line -%}
             <p class="card__tag-line">{{ tag_line | markdownify }}</p>
           {%- endif -%}
