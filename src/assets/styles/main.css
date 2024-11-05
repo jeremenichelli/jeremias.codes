@@ -12,10 +12,10 @@
 /* TAGS AND GENERAL */
 main {
   /*
-   * After exporting SF Pro, there's a clear difference between the
-   * out-of-the-box "opsz" and size of the system-ui resolved SF font
-   * with the one provided by Apple, until I find a better font, this size
-   * adjustment will be needed.
+   * Because I ended up choosing a tight/condensed font, legibility
+   * is a bit compromised on post content. So, this is kind of like a hack
+   * considering we are not respecting the typography scale, as "0" label size 
+   * should be inherit in here.
    */
   font-size: var(--typography--content);
 
