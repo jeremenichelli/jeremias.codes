@@ -8,6 +8,11 @@ const themeMenu = document.querySelector('.theme-menu');
 const themeMenuGroup = document.querySelector('.theme-menu__group');
 
 /**
+ * Enable user agent rendering of menu.
+ */
+themeMenu.classList.add('enabled')
+
+/**
  * Method that returns all theme options presented in DOM.
  *
  * @returns {Element[]} All options.
