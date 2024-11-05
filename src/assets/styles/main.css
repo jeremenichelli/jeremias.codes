@@ -283,6 +283,18 @@ footer {
 }
 
 /* THEME MENU*/
+@property --height {
+  syntax: "<length> | auto";
+  initial-value: 0px;
+  inherits: false;
+}
+
+@property --opacity {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+
 .theme-menu {
   --height: 0;
   --opacity: 0;
@@ -298,6 +310,11 @@ footer {
     --menu-transition-height-delay: var(--menu-transition-duration);
   }
 
+  &.enabled {
+    content-visibility: visible;
+  }
+
+  content-visibility: hidden;
   display: flex;
   height: var(--height);
   opacity: var(--opacity);
@@ -306,6 +323,7 @@ footer {
       var(--menu-transition-height-delay),
     opacity var(--menu-transition-duration) ease-in-out
       var(--menu-transition-opacity-delay);
+  will-change: height, opacity;
 }
 
 .theme-menu__group {
