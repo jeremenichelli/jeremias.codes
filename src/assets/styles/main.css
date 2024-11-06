@@ -60,9 +60,9 @@ footer {
   margin: 0;
   letter-spacing: var(--letter-spacing--small);
   scroll-margin-block-start: var(--spacing--small);
-outline-offset: 4px;
+  outline-offset: 4px;
   border-radius: var(--radius--small);
-  
+
   /* "pretty" is still not supported, so balance is a fallback. */
   text-wrap: balance;
   text-wrap: pretty;
@@ -74,9 +74,9 @@ outline-offset: 4px;
   line-height: var(--leading--compact);
   margin: 0;
   scroll-margin-block-start: var(--spacing--small);
-outline-offset: 4px;
+  outline-offset: 4px;
   border-radius: var(--radius--small);
-  
+
   /* "pretty" is still not supported, so balance is a fallback. */
   text-wrap: balance;
   text-wrap: pretty;
@@ -105,7 +105,6 @@ outline-offset: 4px;
 }
 
 .post__content {
-
   > *:first-child {
     margin-block-start: 0;
   }
@@ -133,7 +132,7 @@ outline-offset: 4px;
     font-weight: 900;
     line-height: var(--leading--sub);
     scroll-margin-block-start: var(--spacing--small);
-outline-offset: 4px;
+    outline-offset: 4px;
     border-radius: var(--radius--small);
     /* "pretty" is still not supported, so balance is a fallback. */
     text-wrap: balance;
@@ -315,20 +314,20 @@ outline-offset: 4px;
   }
 }
 
-/* THEME MENU*/
+/* THEME MENU */
 @property --height {
-  syntax: "<length> | auto";
+  syntax: '<length> | auto';
   initial-value: 0px;
   inherits: false;
 }
 
 @property --opacity {
-  syntax: "<number>";
+  syntax: '<number>';
   initial-value: 0;
   inherits: false;
 }
 
-.theme-menu {
+.theme-menu__wrapper {
   --height: 0;
   --opacity: 0;
   --menu-transition-duration: 175ms;
@@ -359,7 +358,7 @@ outline-offset: 4px;
   will-change: height, opacity;
 }
 
-.theme-menu__group {
+.theme-menu {
   gap: var(--spacing--small);
   margin-block: 0;
   margin-inline-start: auto;
@@ -457,8 +456,10 @@ outline-offset: 4px;
   height: var(--sizing--theme-button);
   width: var(--sizing--theme-button);
 
-  &:not([tabindex='-1']):active {
-    transform: scale(0.95);
+  &:not([tabindex='-1']) {
+    &:active {
+      transform: scale(0.975);
+    }
   }
 
   @media (--not-big-devices) {

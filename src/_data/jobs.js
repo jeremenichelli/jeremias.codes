@@ -34,5 +34,5 @@ export default [
     company: 'Globant',
     company_url: 'https://globant.com',
     period: '2012-2014'
-  },
+  }
 ];

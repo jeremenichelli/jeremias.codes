@@ -4,13 +4,13 @@ import { THEME_KEY } from './utils.ts';
 let focusedThemeOption;
 
 const themeButton = document.querySelector('.navigation__theme-button');
+const themeMenuWrapper = document.querySelector('.theme-menu__wrapper');
 const themeMenu = document.querySelector('.theme-menu');
-const themeMenuGroup = document.querySelector('.theme-menu__group');
 
 /**
  * Enable user agent rendering of menu.
  */
-themeMenu.classList.add('enabled')
+themeMenuWrapper.classList.add('enabled');
 
 /**
  * Method that returns all theme options presented in DOM.
@@ -51,35 +51,34 @@ const openThemeMenu = async () => {
    */
   const onTransitionEnd = (event) => {
     if (event.propertyName === 'height') {
-      themeMenu.style.setProperty('--height', `auto`);
+      themeMenuWrapper.style.setProperty('--height', `auto`);
 
       const themeOptions = getVisibleThemeOptions();
       focusedThemeOption = themeOptions[0];
       focusedThemeOption?.focus();
 
-      themeMenu.removeEventListener('transitionend', onTransitionEnd);
+      themeMenuWrapper.removeEventListener('transitionend', onTransitionEnd);
 
       isMenuAnimating = false;
     }
   };
 
-  themeMenu.addEventListener('transitionend', onTransitionEnd);
+  themeMenuWrapper.addEventListener('transitionend', onTransitionEnd);
 
   /**
    * Reset menu height and add expanded class to trigger opening transition.
    */
-  themeMenu.style.setProperty('--height', `${themeMenuGroup.scrollHeight}px`);
-  themeMenu.style.setProperty('--opacity', `1`);
-  // themeMenu.classList.add('expanded')
+  themeMenuWrapper.style.setProperty('--height', `${themeMenu.scrollHeight}px`);
+  themeMenuWrapper.style.setProperty('--opacity', `1`);
 
-  themeMenu.setAttribute('aria-hidden', 'false');
+  themeMenuWrapper.setAttribute('aria-hidden', 'false');
   themeButton.setAttribute('aria-expanded', 'true');
 };
 
 /**
  * Closes theme menu.
  */
-const closeThemeMenu = async () => {
+const closeThemeMenu = async (focusOnThemeButton = true) => {
   if (isMenuAnimating) return false;
 
   isMenuAnimating = true;
@@ -89,15 +88,17 @@ const closeThemeMenu = async () => {
    */
   const onTransitionEnd = (event) => {
     if (event.propertyName === 'height') {
-      themeButton?.focus();
+      if (focusOnThemeButton) {
+        themeButton?.focus();
+      }
 
-      themeMenu.removeEventListener('transitionend', onTransitionEnd);
+      themeMenuWrapper.removeEventListener('transitionend', onTransitionEnd);
 
       isMenuAnimating = false;
     }
   };
 
-  themeMenu.addEventListener('transitionend', onTransitionEnd);
+  themeMenuWrapper.addEventListener('transitionend', onTransitionEnd);
 
   /**
    * We first set the initial height again because we can transition from `auto` value,
@@ -105,16 +106,16 @@ const closeThemeMenu = async () => {
    *
    * In the end we set it back to `0px`
    */
-  themeMenu.style.setProperty('--height', `${themeMenuGroup.scrollHeight}px`);
+  themeMenuWrapper.style.setProperty('--height', `${themeMenu.scrollHeight}px`);
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      themeMenu.style.setProperty('--height', `0px`);
-      themeMenu.style.setProperty('--opacity', `0`);
+      themeMenuWrapper.style.setProperty('--height', `0px`);
+      themeMenuWrapper.style.setProperty('--opacity', `0`);
     });
   });
 
-  themeMenu.setAttribute('aria-hidden', 'true');
+  themeMenuWrapper.setAttribute('aria-hidden', 'true');
   themeButton.setAttribute('aria-expanded', 'false');
 };
 
@@ -206,7 +207,7 @@ window.addEventListener('storage', function (event) {
 /**
  * Keyboard navigation for accessibility on theme menu.
  */
-themeMenu.addEventListener('keydown', (event) => {
+themeMenuWrapper.addEventListener('keydown', (event) => {
   const themeOptions = getVisibleThemeOptions();
 
   if (event.key == 'ArrowDown') {
@@ -248,7 +249,7 @@ themeMenu.addEventListener('keydown', (event) => {
   }
 
   if (event.key == 'Tab') {
-    closeThemeMenu();
+    closeThemeMenu(false);
   }
 });
 
@@ -261,7 +262,7 @@ window.addEventListener(
     const isExpanded =
       themeButton.getAttribute('aria-expanded') == 'true' ? true : false;
     if (
-      !themeMenu.contains(event.target) &&
+      !themeMenuWrapper.contains(event.target) &&
       isExpanded &&
       event.target !== themeButton
     ) {
