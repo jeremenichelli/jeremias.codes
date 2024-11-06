@@ -60,6 +60,7 @@ footer {
   margin: 0;
   letter-spacing: var(--letter-spacing--small);
   scroll-margin-block-start: var(--spacing--small);
+outline-offset: 4px;
   border-radius: var(--radius--small);
   
   /* "pretty" is still not supported, so balance is a fallback. */
@@ -73,6 +74,7 @@ footer {
   line-height: var(--leading--compact);
   margin: 0;
   scroll-margin-block-start: var(--spacing--small);
+outline-offset: 4px;
   border-radius: var(--radius--small);
   
   /* "pretty" is still not supported, so balance is a fallback. */
@@ -131,6 +133,7 @@ footer {
     font-weight: 900;
     line-height: var(--leading--sub);
     scroll-margin-block-start: var(--spacing--small);
+outline-offset: 4px;
     border-radius: var(--radius--small);
     /* "pretty" is still not supported, so balance is a fallback. */
     text-wrap: balance;

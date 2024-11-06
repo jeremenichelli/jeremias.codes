@@ -15,7 +15,7 @@ export default [
     title: 'Software Engineer and Design Systems Lead',
     company: 'Typeform',
     company_url: 'https://typeform.com',
-    period: '2018-2029'
+    period: '2018-2019'
   },
   {
     title: 'Software Engineer and Tech Lead',
