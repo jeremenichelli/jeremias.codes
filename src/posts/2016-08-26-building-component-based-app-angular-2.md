@@ -98,7 +98,7 @@ Present in previous versions of Angular, directives are _hints_ that will modify
 </ul>
 ```
 
-{% codeSnippetLink '//embed.plnkr.co/eyMDXCRRIXPUo4YpxDHi/' %}
+{% featuredLink '//embed.plnkr.co/eyMDXCRRIXPUo4YpxDHi/' %}
 
 `*ngIf` will not render the element when its condition is false, useful to improve view times and prevent undefined errors when data is not available.
 

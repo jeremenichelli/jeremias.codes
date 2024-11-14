@@ -89,7 +89,7 @@ const Index = () => {
 export default Index;
 ```
 
-{% codeSnippetLink '//codesandbox.io/s/javascript-less-submission-e8z3g' %}
+{% featuredLink '//codesandbox.io/s/javascript-less-submission-e8z3g' %}
 
 A button alone does nothing without JavaScript, like in the first code example.
 

@@ -43,7 +43,7 @@ export async function style(file) {
  * @returns {string} returns blockquote/cite HTML structure.
  */
 export const blockquote = (quote, cite) => {
-  return `<blockquote><p class="card__quote">${quote}</p>${cite ? `<cite class="card__tag-line">${cite}</cite>` : ''}</blockquote>`;
+  return `<blockquote><p class="quote">${quote}</p>${cite ? `<cite class="cite">${cite}</cite>` : ''}</blockquote>`;
 };
 
 /**
@@ -52,8 +52,8 @@ export const blockquote = (quote, cite) => {
  * @param {string} link
  * @returns {string} returns a string template containing the code snippet's link.
  */
-export const codeSnippetLink = (link) => {
-  return `<p class="code-snippet-link"><a href=${link} rel="noopener noreferrer" target="_blank">See this example in action</a></p>`;
+export const featuredLink = (link, copy) => {
+  return `<p class="featured-link"><a href=${link} rel="noopener noreferrer" target="_blank">${copy ? copy : 'See this example in action'}</a></p>`;
 };
 
 /**
@@ -64,6 +64,6 @@ export const codeSnippetLink = (link) => {
  */
 export const codepen = (hash) => {
   return `<div data-height="300" data-theme-id="1" data-slug-hash="${hash}" data-default-tab="html,result" data-user="jeremenichelli" data-embed-version="2" class="codepen">
-      ${codeSnippetLink(`https://codepen.io/jeremenichelli/pen/${hash}/`)}
+      ${featuredLink(`https://codepen.io/jeremenichelli/pen/${hash}/`)}
     </div><script defer src="https://static.codepen.io/assets/embed/ei.js"></script>`;
 };
