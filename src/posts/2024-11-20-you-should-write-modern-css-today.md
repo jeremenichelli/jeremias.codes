@@ -1,35 +1,51 @@
 ---
 title: You should use modern CSS, today
-excerpt: After years of relying on preprocessors and tools to improve my workflow, I shifted from treating CSS as a compile target to using it as my main styling source. Here’s a look at what the future of CSS might hold and how you can start using it today.
+excerpt: After years of relying on preprocessors and tools to improve my workflow, I shifted from treating CSS as a compile target to use it barebone. Here’s a look at what the future, and present, of the language looks like and how you can start using it today.
 ---
 
 Putting some constraints on my personal projects helps me experience upcoming technologies and learn new things. So, when I started building the next version of this site, I decided that this time **no preprocessors, just CSS**.
 
-The two features I used the most in both LESS and SASS: variables and nesting. With both Custom Properties being widely available for a long time and CSS Nesting shipped to all modern browsers, it felt like a safe move.
+The two features I use the most in both LESS and SASS are variables and nesting, but with both Custom Properties and CSS Nesting shipped to all modern browsers, it felt like it was time to give plain CSS a try.
 
-But there were other features I went for too, like custom media, logical properties, layers, new text wrapping values, new color models and functions.
+To my surprise, there were other interesting features I could tap into, like custom media, logical properties, layers, modern text wrapping styles, and new color models and functions among other.
 
-Let's go over each of these to take a look at how modern (and today) CSS looks like.
+Let's go over the ones I got to use recently and how they might shape how you write styles in the near future.
 
 ## Nesting
 
 There's a high chance you used some styling tool or library already know what nesting is, so not gonna waste a lot of time explaining it.
 
-It's good to mention two things. First, it's now just CSS, out-of-the-box. Second, it's not one-to-one nesting you know. It has specificity implications and some things you might have used, like string interpolation, are not possible. Be on the lookout for possible discrepancies while migrating.
+```css
+.dialog {
+  display: none;
+
+  &:is(.visible){
+    display: block;
+  }
+
+  &:is(.full){
+    width 90vw;
+  }
+}
+```
+
+It's good to mention though there's not a lot of difference if you are coming from a preprocessed styling language, it's not one-to-one in capabilities. Some patterns like string interpolation, are not possible.
+
+Be on the lookout for possible discrepancies while migrating.
 
 {% featuredLink '//caniuse.com/css-nesting' 'Browser compatibility for CSS Nesting' %}
 
 ## Layers
 
-Talking about specificity, something really missing in the language was a way to "reset" specificity so base styles and more custom dedicated ones didn't come with a lot of weird hacks.
+Dealing with specificity is oen of the top complaints from developers, usually leading to strange hacks to properly indicate base style to more specific ones.
 
-Now, you define the sequence in which your styles should be considered to take precedence over others without worrying about import order or accidentally specificity bumps.
+With layers, you define the sequence in which your styles should take precedence over others. without worrying about import or cascade order, or some specific modifiers increasing the specificty of a certain rule.
 
 ```css
 @layer reset, theme, content;
 ```
 
-Up in your file you define the desired order of relevance. Then you enclose your styles in the corresponding layers.
+Then you enclose your styles in the preferred layers.
 
 ```css
 @layer reset {
@@ -59,27 +75,27 @@ Up in your file you define the desired order of relevance. Then you enclose your
 }
 ```
 
-Sometimes I stare at this code, and can't believe it's valid and _predictable_ CSS code.
-
-If you know how these features work, given any possible HTML combination and structure, you can easily nail how an element will look with this style rules.
+Given any possible HTML combination and structure around these selectors, you can easily nail how an element will look, making CSS highly deterministic and predictable.
 
 {% featuredLink '//caniuse.com/css-cascade-layers' 'Browser compatibility for CSS Layers' %}
 
 ## Custom Properties
 
-Similar to nesting, variables in CSS is something that has been around for some time and was present in tooling as a concept. Also, there are differences in implementations, in preprocessors normally they act as a constant, but here they can be inherited and modified, making them way more powerful in my opinion.
+Similar to nesting, variables in CSS is something that has been around for some time and was present in tooling as a concept.
 
-The previous code for this site was a mix between both. So I just migrated all the LESS variables to CSS ones, creating values and systems for typography scaling, spacing, sizing and color.
+There are also differences in its native implementation, in preprocessors normally they act as constants, but CSS Properties can be inherited and modified at any step in the CSSOM tree, making them way more powerful in my opinion.
+
+The previous code for this site was using a mix between both. So, I just migrated all the LESS variables to CSS ones, creating values and systems for typography scaling, spacing, sizing and color.
 
 {% featuredLink '//caniuse.com/css-variables' 'Browser compatibility for Custom Properties' %}
 
 ## Custom media
 
-One of the immediate limitations I encountered using purely CSS variables was using them in media queries. And for obvious reasons, you could easily trigger never ending resizing loops for example.
+One of the immediate limitations I encountered while moving all my values to CSS variables was using them in media queries. This was probably made by design as you could easily create loops and infinite cascades of variables recalculations.
 
-Values inside media queries should act as constants, which CSS variables aren't. What was definitely a feature on top of SASS or LESS variables is now a limitation.
+Values inside media queries declarations need to act as constants, which CSS variables aren't, becoming a limitation while migrating from LESS in my case.
 
-Hopefully, there's spec in the working draft to cover this use case.
+Hopefully, there's spec in the working draft stage to cover this use case.
 
 ```css
 @custom-media --really-small-devices-that-might-not-exist (max-width: 320px);
@@ -99,21 +115,21 @@ By declaring this you have constant references to media states.
 }
 ```
 
-In combination with CSS Nesting, you can achieve consistency across your stylesheets while clearly signaling contextual changes for each element.
+In combination with CSS Nesting, you can achieve consistency across your style rules while clearly signaling contextual changes for each of them.
 
 {% featuredLink '//www.w3.org/TR/mediaqueries-5/#custom-mq' 'Working draft for Custom Media' %}
 
 ## Logical properties
 
-Projects supporting several languages required heavy overrides depending on the locale of the user to prevent the site from breaking while supporting the direction required for each language.
+Projects supporting several languages required tons of painful overrides for each possible locale and layout disposition you have in it.
 
-Think about a site that needs to support Hebrew, French and Japanese. You would need to craft a whole layout system for each of those.
+Think about a site that needs to support Hebrew, French and Japanese. You would need to craft a whole set of rules for each of those.
 
-The response to this issue is **logical properties**. They define _inline_ and _block_ axis, with a _start_ and _end_ which all change depending on the writing direction.
+The response to this issue is **logical properties**. They define inline and block axis, with a start and end, which all adaptt to the writing direction.
 
 In latin and most occidental languages, **inline** is horizontal, **block** is vertical, **start** is left while **end** is right.
 
-Here's an example with margin properties.
+Here's an example on how oyu would write margin using this properties.
 
 ```css
 /* Before */
@@ -132,31 +148,35 @@ margin-right: 12px;
 margin-inline-end: 12px;
 ```
 
-These new properties are contextual to the `dir` attribute in the root element of the page, keeping the layout behavior consistent across different writing modes.
+My site won't likely support other languages, but it is a good opportunity to train our brain in using them and understand how they work.
 
-A really handy outcome of this new form is the ability to define one axis without having to specify all four values, in `margin` you can apply `margin-block` or `margin-inline` as individual axis shorthands.
+You can try modifying the `dir` attribute in the root element to `rtl` mode manually and see how the layout adapts with no overrides in place.
+
+A really handy outcome of this new form is the ability to write rules for one orientation without having to specify all four values, in `margin` you can apply `margin-block` or `margin-inline` as individual axis shorthands.
 
 {% featuredLink '//caniuse.com/css-logical-props' 'Browser compatibility for Logical Properties' %}
 
 ## New text wrapping values
 
-I really dislike orphan words in paragraphs and unbalanced headings. I've even created an [Eleventy filter](//github.com/jeremenichelli/eleventy-nbsp-filter) to deal with this in the past.
+I really dislike orphan words in paragraphs and unbalanced headings. I've even created [Eleventy filters](//github.com/jeremenichelli/eleventy-nbsp-filter) to deal with this in the past.
 
-This time, I decided to use both `balance` and `pretty` new values for `text-wrap`, their support is varied and not total in modern browsers, but I consider it a progressively enhanced touch. If your current browser doesn't support it your experience doesn't downgrade, but looks slightly different.
+This time, I decided to use both `balance` and `pretty` new values for `text-wrap`.
+
+Their support is varied and not fully present in modern browsers, but you can consider it a progressively enhanced touch. If your current browser doesn't support it your experience doesn't downgrade, but looks slightly different.
 
 I like to use `balance` for headings, as it tries to match the amount of characters per line, and `pretty` for quotes and excerpts, this one doesn't alter each line but tries to optimize the last ones to avoid orphans.
 
-I still use a simpler filter to deal with orphans in articles' excerpts.
+I still use a simpler filter to deal with orphans in articles' excerpts as fallback.
 
 {% featuredLink '//developer.mozilla.org/en-US/docs/Web/CSS/text-wrap' 'MDN documentation for text-wrap' %}
 
 ## Color models
 
-For this rewrite, I went full on **hsl** color model. CSS has recently added several different ways to define a color value, but having the ability to choose **hue**, then its **saturation** and later **lightness** to me is the best mental model from a developer perspective.
+For this version of my site, I went full on **hsl** color model.
 
-Either you are using another modern one like **hwb** or are still in **rgb** color models, you are just sending parameters to obtain a certain color. Having the ability to set how saturated and bright I want that specific color is priceless.
+CSS has recently added several different ways to define a color value, but having the ability to choose **hue**, then its **saturation** and later **lightness** to me is the best mental model from a reading perspective.
 
-If you are not familiar with **hue** imaging a circle with all the spectrum of colors, this value is your position inside that wheel. If you want _red_ you go with `0` , `120` for _green_, and around `240` you get some sort of _blurple_. In between you have all the rest of the spectrum.
+If you are not familiar with **hue**, imaging a circle with all the spectrum of colors, this value is your position inside that wheel. If you want _red_ you go with `0` , `120` for _green_, and around `240` you get some sort of _blurple_. In between you have all the rest of the spectrum.
 
 For example, this would be your basic red color.
 
@@ -170,13 +190,13 @@ Do you want a pastel pink? Lower a bit of saturation and set a higher brightness
 color: hsl(0, 70%, 85%);
 ```
 
-A purple on the same pastel tone? Move the hue around that color position.
+A purple on the same pastel tone? Move the hue to that color position.
 
 ```css
 color: hsl(240, 70%, 85%);
 ```
 
-Building different colors themes as this page has, coming up with other syntax highlighting for `code` blocks and fixing accessibility contrast colors by slightly tweaking this manually was really priceless while building this site.
+Building different colors themes as this page has, coming up with other syntax highlighting for `code` blocks and fixing accessibility contrast colors by slightly tweaking these parameters was really priceless on this iteration.
 
 {% featuredLink '//caniuse.com/css3-colors' 'Browser compatibility for CSS3 Colors' %}
 
@@ -204,11 +224,11 @@ Providing a _system_ option that consumes the device setting seems pretty straig
 }
 ```
 
-But things get more complicated if the system preference is set to dark, but the user wants the light theme locked.
+But things get more complicated when you want to provide a sytem mode and a way for the user to lock either the light or dark theme.
 
 You now need JavaScript to determine what the user selected, what's system preference, infer what the resulting theme is, use specific selectors for each mode to change variables and listen to system preference changes to manually toggle modes.
 
-Suddenly, the complexity of supporting themes skyrockets.
+Suddenly, the complexity of theming escaltes, by a lot.
 
 Another really annoying thing is having a big collection of CSS variables which becomes hard to maintain as the list grows.
 
@@ -239,13 +259,24 @@ And finally, you don't need a whole decision tree to determine the theme. If a u
 
 And that's it.
 
-It's true you still need JavaScript, but instead of scripting a full decision tree you just use it to modify the dataset value of the root element.
+It's true you still need JavaScript, but instead of writing a full decision tree you just use it to modify a dataset value or a class on the root element.
 
 ## What about backwards support in browsers?
 
+All these features are amazing, but it's true some of them are just arriving to browsers, and even some like custom queries are still in draft.
+
+You might be wonder how this site is using all of these. The answer is [lightningcss](//lightningcss.dev), brought by the folks behind Parcel bundler. It not only transforms all these newer syntas into backwards compatible CSS, but also is a great minifier.
+
+This tool is written efficiently in Rust, so is blazing fast, and there's a high change it can be integrated to your current tool pipeline.
+
 ## Wrap-up
 
-<!-- Constraints like this means you potentially deal with the missing utilities and, more on the brightside, you are surprised with how much something has improved. -->
+Constraints like the one I set of the beginning of this rewrite mean you potentially have to deal with the missing utilities but, more on the brightside, you can be surprised with how much something has improved.
 
+And I am delighted with how powerful today and future CSS has gotten.
 
-https://web.dev/articles/building/a-theme-switch-component
+The language is really attacking several fronts, not only you need to write less code to achieve the same things, it's improving developer experience making code more readable and scalable, and making specificty way less of a burden to deal with.
+
+### Further reading
+ - _Fill it up with one article or spec reference for each proposal..._
+ - [A theme switch component](//web.dev/articles/building/a-theme-switch-component) on web.dev blog.
