@@ -24,7 +24,7 @@ main {
   }
 }
 
-footer {
+.footer {
   margin-block-start: var(--spacing--medium);
 }
 
@@ -343,7 +343,7 @@ blockquote {
   font-weight: 900;
   font-size: var(--typography--02);
 
-  .card__quote + & {
+  &:not(:first-child) {
     margin-block: var(--spacing--small) 0;
   }
 }
@@ -454,8 +454,7 @@ blockquote {
     outline-offset: 4px;
   }
 
-  &[aria-current='page'],
-  &:where(.current) {
+  &:where([aria-current='page'], .current) {
     color: var(--text--primary);
   }
 }
@@ -490,10 +489,8 @@ blockquote {
   height: var(--sizing--theme-button);
   width: var(--sizing--theme-button);
 
-  &:where(.enabled) {
-    &:active {
-      transform: scale(0.975);
-    }
+  &:where(.enabled):active {
+    transform: scale(0.975);
   }
 
   @media (--not-big-devices) {
@@ -508,7 +505,7 @@ blockquote {
   }
 }
 
-/* CHEAT CODES */
+/* CHEAT-CODE-RELATED SHENANIGANS  */
 [data-value='konami'],
 [data-value='hedgehog'] {
   display: none;

@@ -59,9 +59,9 @@
     &:where([data-theme='light']) {
       color-scheme: light;
     }
-  }
 
-  &:where([data-theme='dark']) {
-    color-scheme: dark;
+    &:where([data-theme='dark']) {
+      color-scheme: dark;
+    }
   }
 }
