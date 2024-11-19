@@ -26,7 +26,7 @@ It could be the font you want is not in Google Fonts' catalog, or simply you wan
 
 I recently launched a new design for this site, and as part of the release I wanted to push even more performance improvements.
 
-_It's fair to say the previous version was using Google Fonts, and was already in good shape, with a perfect score and good numbers in performance measuring tools like [Lighthouse][lighthouse]._
+_It's fair to say the previous version was using Google Fonts, and was already in good shape, with a perfect score and good numbers in performance measuring tools like [Lighthouse][lighthouse] and [Web Page Test][webpagetest]._
 
 I described my font strategy several times in [articles][font-strategy-article] and [talks][font-strategy-talk], which included loading the stylesheet without blocking text content, switching to the custom font only when it is ready, and saving the stylesheet rules with web storage to prevent text flickering while navigating through the site.
 
@@ -197,6 +197,7 @@ _Shout out to Zach Leatherman's article [Developing a Robust Font Loading Strate
 **16 AUG 2020** &mdash; Initially the article stated the size of the homepage file went down to its original **50Kb** weight, but _kerning_ was not included in the subset configuration. That part was updated to reflect the final numbers.
 
 [lighthouse]: //developers.google.com/web/tools/lighthouse
+[webpagetest]: //webpagetest.org
 [font-strategy-article]: /2016/05/font-loading-strategy-static-generated-sites/
 [font-strategy-talk]: //youtu.be/TFWTVwgdNPA
 [font-face-observer]: //fontfaceobserver.com/
