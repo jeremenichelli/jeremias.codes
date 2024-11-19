@@ -24,7 +24,7 @@ main {
   }
 }
 
-footer {
+.footer {
   margin-block-start: var(--spacing--medium);
 }
 
@@ -162,66 +162,99 @@ footer {
       margin-block: var(--spacing--base) var(--spacing--content);
     }
   }
+}
+
+.featured-link {
+  text-align: center;
+  font-style: italic;
+  font-weight: 900;
+  font-size: var(--typography--01);
+  letter-spacing: var(--letter-spacing--action);
+}
+
+/* Codepen wrapper styles */
+.cp_embed_wrapper {
+  margin-block-start: var(--spacing--content);
+  margin-inline-start: calc(var(--spacing--base) * -1);
+  overflow: hidden;
+  width: 100vw;
+
+  @media (--big-devices) {
+    border-radius: var(--radius--medium);
+    width: var(--sizing--section);
+  }
+}
+
+code {
+  background-color: var(--surface--inverted);
+  border-radius: var(--radius--small);
+  color: var(--text--primary--inverted);
+  font-family: Menlo, Consolas, Monaco, monospace;
+  font-size: var(
+    --typography--code
+  ); /* Font size locked in this size out of scale. */
+  padding: 3px;
+  vertical-align: middle;
+  word-break: keep-all;
+}
+
+pre {
+  background-color: var(--surface--inverted);
+  color: var(--text--primary--inverted);
+  font-size: var(
+    --typography--code
+  ); /* Font size locked in this size out of scale. */
+  margin-inline-start: calc(var(--spacing--base) * -1);
+  overflow: auto;
+  padding: var(--spacing--base) 0;
+  tab-size: 2;
+  width: 100vw;
+
+  @media (--big-devices) {
+    border-radius: var(--radius--medium);
+    width: var(--sizing--section);
+  }
 
   code {
-    background-color: var(--surface--inverted);
-    border-radius: var(--radius--small);
-    color: var(--text--primary--inverted);
-    font-family: Menlo, Consolas, Monaco, monospace;
-    font-size: var(
-      --typography--code
-    ); /* Font size locked in this size out of scale. */
-    padding: 3px;
-    word-break: keep-all;
+    /* Reset styles for standalone code tags. */
+    background-color: transparent;
+    border-radius: 0;
+
+    /* Allow padding on horizontal overflow. */
+    display: inline-block;
+    padding: 0 var(--spacing--base);
   }
+}
 
-  pre {
-    background-color: var(--surface--inverted);
-    color: var(--text--primary--inverted);
-    font-size: var(
-      --typography--code
-    ); /* Font size locked in this size out of scale. */
-    margin-inline-start: calc(var(--spacing--base) * -1);
-    overflow: auto;
-    padding: var(--spacing--base) 0;
-    tab-size: 2;
-    width: 100vw;
+blockquote {
+  margin: var(--spacing--base);
 
-    @media (--big-devices) {
-      border-radius: var(--radius--medium);
-      width: var(--sizing--section);
-    }
+  /* "pretty" is still not supported, so balance is a fallback. */
+  text-wrap: balance;
+  text-wrap: pretty;
 
-    code {
-      /* Reset styles for standalone code tags. */
-      background-color: transparent;
-      border-radius: 0;
-
-      /* Allow padding on horizontal overflow. */
-      display: inline-block;
-      padding: 0 var(--spacing--base);
-    }
+  @media (--big-devices) {
+    margin: var(--spacing--medium);
   }
+}
 
-  .code-snippet-link {
-    text-align: center;
-    font-style: italic;
-    font-weight: 900;
-    font-size: var(--typography--01);
+.quote {
+  font-size: var(--typography--01);
+  line-height: var(--leading--base);
+  margin: 0;
+
+  @media (--big-devices) {
+    font-size: var(--typography--02);
   }
+}
 
-  /* Codepen wrapper styles. */
-  .cp_embed_wrapper {
-    margin-block-start: var(--spacing--content);
-    margin-inline-start: calc(var(--spacing--base) * -1);
-    overflow: hidden;
-    width: 100vw;
-
-    @media (--big-devices) {
-      border-radius: var(--radius--medium);
-      width: var(--sizing--section);
-    }
-  }
+.cite {
+  display: block;
+  margin-block: 0;
+  line-height: var(--leading--sub);
+  font-weight: 900;
+  font-size: var(--typography--02);
+  margin-block: var(--spacing--xsmall) 0;
 }
 
 /* LISTS */
@@ -309,7 +342,8 @@ footer {
   line-height: var(--leading--sub);
   font-weight: 900;
   font-size: var(--typography--02);
-  .card__quote + & {
+
+  &:not(:first-child) {
     margin-block: var(--spacing--small) 0;
   }
 }
@@ -342,7 +376,7 @@ footer {
     --menu-transition-height-delay: var(--menu-transition-duration);
   }
 
-  &.enabled {
+  &:where(.enabled) {
     content-visibility: visible;
   }
 
@@ -420,8 +454,7 @@ footer {
     outline-offset: 4px;
   }
 
-  &[aria-current='page'],
-  &:is(.current) {
+  &:where([aria-current='page'], .current) {
     color: var(--text--primary);
   }
 }
@@ -456,10 +489,8 @@ footer {
   height: var(--sizing--theme-button);
   width: var(--sizing--theme-button);
 
-  &:not([tabindex='-1']) {
-    &:active {
-      transform: scale(0.975);
-    }
+  &:where(.enabled):active {
+    transform: scale(0.975);
   }
 
   @media (--not-big-devices) {
@@ -474,7 +505,7 @@ footer {
   }
 }
 
-/* CHEAT CODES */
+/* CHEAT-CODE-RELATED SHENANIGANS  */
 [data-value='konami'],
 [data-value='hedgehog'] {
   display: none;

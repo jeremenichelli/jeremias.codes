@@ -173,7 +173,7 @@ const Dialog = ({ isOpen, title, content }) => {
 };
 ```
 
-{% codeSnippetLink '//codesandbox.io/s/pl8ollk70' %}
+{% featuredLink '//codesandbox.io/s/pl8ollk70' %}
 
 Now, the behavior can be shared across the components of the system. This also has an impact in other parts of the repositories like the unit tests suite.
 

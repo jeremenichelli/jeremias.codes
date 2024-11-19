@@ -1,4 +1,4 @@
-/* setup custom media queries */
+/* setup custom media */
 @custom-media --really-small-devices-that-might-not-exist (max-width: 320px);
 @custom-media --big-devices (min-width: 640px);
 @custom-media --not-big-devices (max-width: 639px);
@@ -104,23 +104,6 @@
   img {
     height: auto;
     max-width: 100%;
-  }
-
-  blockquote {
-    margin: var(--spacing--base);
-
-    /* "pretty" is still not supported, so balance is a fallback. */
-    text-wrap: balance;
-    text-wrap: pretty;
-
-    & .card__quote {
-      color: var(--text--secondary);
-      font-weight: 700;
-    }
-
-    @media (--big-devices) {
-      margin: var(--spacing--medium);
-    }
   }
 
   /**

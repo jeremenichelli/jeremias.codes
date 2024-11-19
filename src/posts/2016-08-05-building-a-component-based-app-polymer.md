@@ -55,7 +55,7 @@ class GitHubLink extends HTMLElement {
 document.registerElement('github-link', GitHubLink);
 ```
 
-{% codeSnippetLink '//jsfiddle.net/8Lrm8dzh/' %}
+{% featuredLink '//jsfiddle.net/8Lrm8dzh/' %}
 
 When extending native elements prototype, some life cycle functions become available like the `createdCallback` and `attachedCallback` to run some code at specific moments.
 
@@ -98,7 +98,7 @@ The one you're going to use more is the `<dom-module>` tag, inside of which we p
 </dom-module>
 ```
 
-{% codeSnippetLink '//jsfiddle.net/jeremenichelli/nvd4t92h/' %}
+{% featuredLink '//jsfiddle.net/jeremenichelli/nvd4t92h/' %}
 
 The element's name must match in the `<dom-module>` tag and the Polymer function call for the `is` attribute and property respectively.
 
@@ -163,7 +163,7 @@ When we create a new element with Polymer, properties are declared in its object
 </dom-module>
 ```
 
-{% codeSnippetLink '//jsfiddle.net/jeremenichelli/fdg4mwez/' %}
+{% featuredLink '//jsfiddle.net/jeremenichelli/fdg4mwez/' %}
 
 Properties are accessible in the view by enclosing them with square brackets.
 
@@ -240,7 +240,7 @@ In Polymer when using `[[ ]]`, single operators can be used and object propertie
 </dom-module>
 ```
 
-{% codeSnippetLink '//jsfiddle.net/jeremenichelli/kfz4pbqn/' %}
+{% featuredLink '//jsfiddle.net/jeremenichelli/kfz4pbqn/' %}
 
 To define a computed property, add it with a _computed_ key referencing a method and including the properties that will trigger a value change in the arguments.
 

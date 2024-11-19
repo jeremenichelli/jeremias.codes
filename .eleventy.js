@@ -1,11 +1,9 @@
-// const xmlPlugin = require('eleventy-xml-plugin');
-
 import syntaxHighlightPlugin from '@11ty/eleventy-plugin-syntaxhighlight';
 import pluginRss from '@11ty/eleventy-plugin-rss';
 import {
   script,
   style,
-  codeSnippetLink,
+  featuredLink,
   codepen,
   blockquote
 } from './eleventy/shortcodes.js';
@@ -57,20 +55,20 @@ export default function eleventy(config) {
   /* SHORT CODES */
   config.addShortcode('script', script);
   config.addShortcode('style', style);
-  config.addShortcode('codeSnippetLink', codeSnippetLink);
+  config.addShortcode('featuredLink', featuredLink);
   config.addShortcode('codepen', codepen);
   config.addShortcode('blockquote', blockquote);
 
   /* MARKDOWN */
   config.setLibrary('md', md);
 
-  /* COPY */
+  /* COPY STATIC ASSETS */
   config.addPassthroughCopy({ 'src/assets/images/*': 'assets/images' });
   config.addPassthroughCopy({ 'src/assets/favicons/*': 'assets/favicons' });
   config.addPassthroughCopy({ 'src/assets/fonts/*.woff2': 'assets/fonts' });
   config.addPassthroughCopy({ 'src/public/*': '.' });
 
-  /* HTML */
+  /* HTML MINIFIER */
   config.addTransform('htmlmin', htmlmin);
 
   // Return base config.

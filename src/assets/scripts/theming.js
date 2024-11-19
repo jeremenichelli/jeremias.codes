@@ -124,7 +124,7 @@ const closeThemeMenu = async (focusOnThemeButton = true) => {
  * on theme button when JavaScript is available.
  */
 themeButton?.removeAttribute('tabindex');
-themeButton?.removeAttribute('aria-hidden');
+themeButton?.classList.add('enabled');
 
 /**
  * Toggle theming menu on click.

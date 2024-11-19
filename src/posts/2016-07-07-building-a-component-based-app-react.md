@@ -26,7 +26,7 @@ let Link = React.createElement(
 );
 ```
 
-{% codeSnippetLink '//jsfiddle.net/jeremenichelli/kqLmfcq4' %}
+{% featuredLink '//jsfiddle.net/jeremenichelli/kqLmfcq4' %}
 
 In this example we are creating an anchor, passing the `href` and `class` properties and a text node as its only children.
 
@@ -147,7 +147,7 @@ class GitHubUsers extends Component {
 render(<GitHubUsers />, document.querySelector('#example'));
 ```
 
-{% codeSnippetLink '//jsfiddle.net/jeremenichelli/oLL9j1bj/3' %}
+{% featuredLink '//jsfiddle.net/jeremenichelli/oLL9j1bj/3' %}
 
 The render function in React components always has to return a single root element, that's why the two GitHub links are placed inside a **div** tag.
 
@@ -174,7 +174,7 @@ class GitHubUsers extends Component {
 }
 ```
 
-{% codeSnippetLink '//jsfiddle.net/jeremenichelli/oLL9j1bj/4/' %}
+{% featuredLink '//jsfiddle.net/jeremenichelli/oLL9j1bj/4/' %}
 
 This is a better pattern since now the logic inside `render` doesn't need to be updated when the data changes, improving the maintainability of the code.
 
@@ -251,7 +251,7 @@ class AccordionElement extends Component {
 }
 ```
 
-{% codeSnippetLink '//jsfiddle.net/jeremenichelli/oLL9j1bj/5' %}
+{% featuredLink '//jsfiddle.net/jeremenichelli/oLL9j1bj/5' %}
 
 When the `toggleState` function gets called the context will be the rendered node, with `bind` we change it back to the component.
 

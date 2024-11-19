@@ -50,6 +50,7 @@ class ActionButton extends React.Component {
 
   render() {
     const { label, action } = this.props;
+
     return (
       <button onClick={action} ref={this.buttonRef}>
         {label}
@@ -68,15 +69,16 @@ Recently, the React team released Hooks to pair them with the same features clas
 We can now import `useRef` for refs inside function components as well.
 
 ```js
-import React, { useRef } from 'react'
+import React, { useRef } from 'react';
 
 function ActionButton({ label, action }) {
-	const buttonRef = useRef(null)
+  const buttonRef = useRef(null);
 
-	return (
-		<button onClick={action} ref={buttonRef}>{label}</button>
-	)
-  }
+  return (
+    <button onClick={action} ref={buttonRef}>
+      {label}
+    </button>
+  );
 }
 ```
 
@@ -250,7 +252,7 @@ class InputModal extends React.Component {
 export default InputModal;
 ```
 
-{% codeSnippetLink '//codesandbox.io/s/input-modal-example-gvrpo' %}
+{% featuredLink '//codesandbox.io/s/input-modal-example-gvrpo' %}
 
 Remember that you need to access the element through the `current` property.
 
@@ -327,7 +329,7 @@ class InputModal extends React.Component {
 export default InputModal;
 ```
 
-{% codeSnippetLink '//codesandbox.io/s/input-modal-example-1to08' %}
+{% featuredLink '//codesandbox.io/s/input-modal-example-1to08' %}
 
 Here, we are checking if the element click is out of the modal limits.
 
@@ -435,7 +437,7 @@ class InputModal extends React.Component {
 export default InputModal;
 ```
 
-{% codeSnippetLink '//codesandbox.io/s/input-modal-example-z63vr' %}
+{% featuredLink '//codesandbox.io/s/input-modal-example-z63vr' %}
 
 At the constructor level, we are setting up the initial animation values, which will modify the styles of our DOM references. The timeline only plays when the component mounts.
 
@@ -552,7 +554,7 @@ const LabelledInput = (props, ref) => {
 export default React.forwardRef(InputCombo);
 ```
 
-{% codeSnippetLink '//codesandbox.io/s/input-modal-example-l2wst' %}
+{% featuredLink '//codesandbox.io/s/input-modal-example-l2wst' %}
 
 To achieve this, we'll pass a second argument to our function and place it in the desired element.
 
