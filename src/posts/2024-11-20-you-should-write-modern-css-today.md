@@ -1,13 +1,13 @@
 ---
-title: You should use modern CSS, today
-excerpt: After years of relying on preprocessors and tools to improve my workflow, I shifted from treating CSS as a compile target to use it barebone. Here’s a look at what the future, and present, of the language looks like and how you can start using it today.
+title: You should write modern CSS, today
+excerpt: After years of relying on preprocessors and tools to improve my workflow, I shifted from treating CSS as a compile target to using it barebone. Here’s a look at what the future, and present, of the language looks like and how you can start using it today.
 ---
 
 Putting some constraints on my personal projects helps me experience upcoming technologies and learn new things. So, when I started building the next version of this site, I decided that this time **no preprocessors, just CSS**.
 
 The two features I use the most in both LESS and SASS are variables and nesting, but with both Custom Properties and CSS Nesting shipped to all modern browsers, it felt like it was time to give plain CSS a try.
 
-To my surprise, there were other interesting features I could tap into, like custom media, logical properties, layers, modern text wrapping styles, and new color models and functions among other.
+To my surprise, there were other interesting features I could tap into, like custom media, logical properties, layers, modern text wrapping styles, and new color models and functions among others.
 
 Let's go over the ones I got to use recently and how they might shape how you write styles in the near future.
 
@@ -20,16 +20,16 @@ There's a high chance you used some styling tool or library already know what ne
   display: none;
 
   &:is(.visible){
-    display: block;
+	display: block;
   }
 
   &:is(.full){
-    width 90vw;
+	width: 90vw;
   }
 }
 ```
 
-It's good to mention though there's not a lot of difference if you are coming from a preprocessed styling language, it's not one-to-one in capabilities. Some patterns like string interpolation, are not possible.
+It's good to mention though there's not a lot of difference if you are coming from a preprocessed styling language, it's not one-to-one in capabilities. Some patterns like string interpolation are not possible.
 
 Be on the lookout for possible discrepancies while migrating.
 
@@ -37,9 +37,9 @@ Be on the lookout for possible discrepancies while migrating.
 
 ## Layers
 
-Dealing with specificity is oen of the top complaints from developers, usually leading to strange hacks to properly indicate base style to more specific ones.
+Dealing with specificity is one of the top complaints from developers, usually leading to strange hacks to properly indicate base style to more specific ones.
 
-With layers, you define the sequence in which your styles should take precedence over others. without worrying about import or cascade order, or some specific modifiers increasing the specificty of a certain rule.
+With layers, you define the sequence in which your styles should take precedence over others. without worrying about import or cascade order, or some specific modifiers increasing the specificity of a certain rule.
 
 ```css
 @layer reset, theme, content;
@@ -50,27 +50,27 @@ Then you enclose your styles in the preferred layers.
 ```css
 @layer reset {
   a {
-    color: inherit;
-    text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 
-    :hover {
-      text-decoration: underline;
-    }
+	:hover {
+  	text-decoration: underline;
+	}
   }
 }
 
 @layer theme {
   a {
-    [data-theme='accent'] & {
-      color: var(--accent);
-    }
+	[data-theme='accent'] & {
+  	color: var(--accent);
+	}
   }
 }
 
 @layer content {
   .featured-link {
-    font-style: italic;
-    text-decoration: underline;
+	font-style: italic;
+	text-decoration: underline;
   }
 }
 ```
@@ -91,7 +91,7 @@ The previous code for this site was using a mix between both. So, I just migrate
 
 ## Custom media
 
-One of the immediate limitations I encountered while moving all my values to CSS variables was using them in media queries. This was probably made by design as you could easily create loops and infinite cascades of variables recalculations.
+One of the immediate limitations I encountered while moving all my values to CSS variables was using them in media queries. This was probably made by design as you could easily create loops and infinite cascades of variable recalculations.
 
 Values inside media queries declarations need to act as constants, which CSS variables aren't, becoming a limitation while migrating from LESS in my case.
 
@@ -110,7 +110,7 @@ By declaring this you have constant references to media states.
   padding: var(--spacing--small);
 
   @media (--big-devices) {
-    padding: var(--spacing--large);
+	padding: var(--spacing--large);
   }
 }
 ```
@@ -125,11 +125,11 @@ Projects supporting several languages required tons of painful overrides for eac
 
 Think about a site that needs to support Hebrew, French and Japanese. You would need to craft a whole set of rules for each of those.
 
-The response to this issue is **logical properties**. They define inline and block axis, with a start and end, which all adaptt to the writing direction.
+The response to this issue is **logical properties**. They define inline and block axes, with a start and end, which all adapt to the writing direction.
 
 In latin and most occidental languages, **inline** is horizontal, **block** is vertical, **start** is left while **end** is right.
 
-Here's an example on how oyu would write margin using this properties.
+Here's an example on how you would write margin using these properties.
 
 ```css
 /* Before */
@@ -148,7 +148,7 @@ margin-right: 12px;
 margin-inline-end: 12px;
 ```
 
-My site won't likely support other languages, but it is a good opportunity to train our brain in using them and understand how they work.
+My site won't likely support other languages, but using them even in these cases is a good opportunity to train our brains in using them and understand how they work.
 
 You can try modifying the `dir` attribute in the root element to `rtl` mode manually and see how the layout adapts with no overrides in place.
 
@@ -218,17 +218,17 @@ Providing a _system_ option that consumes the device setting seems pretty straig
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #010101;
-    --text: #fefefe;
+	--background: #010101;
+	--text: #fefefe;
   }
 }
 ```
 
-But things get more complicated when you want to provide a sytem mode and a way for the user to lock either the light or dark theme.
+But things get more complicated when you want to provide a system mode and a way for the user to lock either the light or dark theme.
 
 You now need JavaScript to determine what the user selected, what's system preference, infer what the resulting theme is, use specific selectors for each mode to change variables and listen to system preference changes to manually toggle modes.
 
-Suddenly, the complexity of theming escaltes, by a lot.
+Suddenly, the complexity of theming escalates, by a lot.
 
 Another really annoying thing is having a big collection of CSS variables which becomes hard to maintain as the list grows.
 
@@ -265,18 +265,26 @@ It's true you still need JavaScript, but instead of writing a full decision tree
 
 All these features are amazing, but it's true some of them are just arriving to browsers, and even some like custom queries are still in draft.
 
-You might be wonder how this site is using all of these. The answer is [lightningcss](//lightningcss.dev), brought by the folks behind Parcel bundler. It not only transforms all these newer syntas into backwards compatible CSS, but also is a great minifier.
+You might be wondering how this site is using all of these. The answer is [lightningcss](//lightningcss.dev), brought by the folks behind Parcel bundler. It not only transforms all these newer syntax into backwards compatible CSS, but also is a great minifier.
 
-This tool is written efficiently in Rust, so is blazing fast, and there's a high change it can be integrated to your current tool pipeline.
+This tool is written efficiently in Rust, so is blazing fast, and there's a high chance it can be integrated to your current tool pipeline.
 
 ## Wrap-up
 
-Constraints like the one I set of the beginning of this rewrite mean you potentially have to deal with the missing utilities but, more on the brightside, you can be surprised with how much something has improved.
+Constraints like the one I set at the beginning of this rewrite mean you potentially have to deal with some downgrades, but also be surprised with how much something has improved.
 
 And I am delighted with how powerful today and future CSS has gotten.
 
-The language is really attacking several fronts, not only you need to write less code to achieve the same things, it's improving developer experience making code more readable and scalable, and making specificty way less of a burden to deal with.
+The language is really attacking several fronts, not only you need to write less code to achieve the same things, it's improving developer experience, making code more readable and scalable, and making specificity way less of a burden to deal with.
 
 ### Further reading
- - _Fill it up with one article or spec reference for each proposal..._
+
+- [Using CSS Nesting](//developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting) on MDN.
+- [Cascade Layers Guide](//css-tricks.com/css-cascade-layers/) by Miriam Suzanne on CSS Tricks.
+ - [Using CSS custom properties](//developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on MDN.
+ - [Can we have custom media queries, please?](https://www.stefanjudis.com/notes/can-we-have-custom-media-queries-please/) by Stefan Judis.
+ - [Logical properties](//web.dev/learn/css/logical-properties) on web.dev.
+ - [Future CSS: Text Wrap Pretty](//alexpate.com/posts/future-css-text-wrap-pretty) by Alex Pate.
+ - [A Guide To Modern CSS Colors With RGB, HSL, HWB, LAB And LCH](https://www.smashingmagazine.com/2021/11/guide-modern-css-colors/) by Michelle Barker on Smashing Magazine.
+ - [CSS color-scheme-dependent colors with light-dark()](//web.dev/articles/light-dark) by Bramus on web.dev.
  - [A theme switch component](//web.dev/articles/building/a-theme-switch-component) on web.dev blog.
