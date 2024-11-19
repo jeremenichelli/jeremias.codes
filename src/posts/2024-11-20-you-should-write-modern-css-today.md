@@ -19,12 +19,12 @@ There's a high chance you used some styling tool or library already know what ne
 .dialog {
   display: none;
 
-  &:is(.visible){
-	display: block;
+  &:is(.visible) {
+    display: block;
   }
 
-  &:is(.full){
-	width: 90vw;
+  &:is(.full) {
+    width: 90vw;
   }
 }
 ```
@@ -50,27 +50,27 @@ Then you enclose your styles in the preferred layers.
 ```css
 @layer reset {
   a {
-	color: inherit;
-	text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 
-	:hover {
-  	text-decoration: underline;
-	}
+    :hover {
+      text-decoration: underline;
+    }
   }
 }
 
 @layer theme {
   a {
-	[data-theme='accent'] & {
-  	color: var(--accent);
-	}
+    [data-theme='accent'] & {
+      color: var(--accent);
+    }
   }
 }
 
 @layer content {
   .featured-link {
-	font-style: italic;
-	text-decoration: underline;
+    font-style: italic;
+    text-decoration: underline;
   }
 }
 ```
@@ -110,7 +110,7 @@ By declaring this you have constant references to media states.
   padding: var(--spacing--small);
 
   @media (--big-devices) {
-	padding: var(--spacing--large);
+    padding: var(--spacing--large);
   }
 }
 ```
@@ -129,7 +129,7 @@ The response to this issue is **logical properties**. They define inline and blo
 
 In latin and most occidental languages, **inline** is horizontal, **block** is vertical, **start** is left while **end** is right.
 
-Here's an example on how you would write margin using these properties.
+Here's an example on how you would write margin styles using these properties for left-to-right languages.
 
 ```css
 /* Before */
@@ -137,7 +137,11 @@ margin-top: 12px;
 
 /* Now, with logical properties */
 margin-block-start: 12px;
+```
 
+And so it goes for the rest of margin styles, also applying to padding ones.
+
+```css
 margin-left: 12px;
 margin-inline-start: 12px;
 
@@ -176,7 +180,9 @@ For this version of my site, I went full on **hsl** color model.
 
 CSS has recently added several different ways to define a color value, but having the ability to choose **hue**, then its **saturation** and later **lightness** to me is the best mental model from a reading perspective.
 
-If you are not familiar with **hue**, imaging a circle with all the spectrum of colors, this value is your position inside that wheel. If you want _red_ you go with `0` , `120` for _green_, and around `240` you get some sort of _blurple_. In between you have all the rest of the spectrum.
+If you are not familiar with **hue**, imaging a circle with all the spectrum of colors, this value is your position inside that wheel. If you want _red_ you go with `0` , `120` for _green_, and around `240` you get some sort of _blurple_.
+
+In between you have all the rest of the spectrum.
 
 For example, this would be your basic red color.
 
@@ -218,8 +224,8 @@ Providing a _system_ option that consumes the device setting seems pretty straig
 
 @media (prefers-color-scheme: dark) {
   :root {
-	--background: #010101;
-	--text: #fefefe;
+    --background: #010101;
+    --text: #fefefe;
   }
 }
 ```
@@ -275,16 +281,16 @@ Constraints like the one I set at the beginning of this rewrite mean you potenti
 
 And I am delighted with how powerful today and future CSS has gotten.
 
-The language is really attacking several fronts, not only you need to write less code to achieve the same things, it's improving developer experience, making code more readable and scalable, and making specificity way less of a burden to deal with.
+The language is really attacking several fronts, not only you need to write less code than before to achieve the certain things, it's also improving developer experience by making code more readable and maintainable, and making specificity way less of a burden to deal with.
 
 ### Further reading
 
 - [Using CSS Nesting](//developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting) on MDN.
 - [Cascade Layers Guide](//css-tricks.com/css-cascade-layers/) by Miriam Suzanne on CSS Tricks.
- - [Using CSS custom properties](//developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on MDN.
- - [Can we have custom media queries, please?](https://www.stefanjudis.com/notes/can-we-have-custom-media-queries-please/) by Stefan Judis.
- - [Logical properties](//web.dev/learn/css/logical-properties) on web.dev.
- - [Future CSS: Text Wrap Pretty](//alexpate.com/posts/future-css-text-wrap-pretty) by Alex Pate.
- - [A Guide To Modern CSS Colors With RGB, HSL, HWB, LAB And LCH](https://www.smashingmagazine.com/2021/11/guide-modern-css-colors/) by Michelle Barker on Smashing Magazine.
- - [CSS color-scheme-dependent colors with light-dark()](//web.dev/articles/light-dark) by Bramus on web.dev.
- - [A theme switch component](//web.dev/articles/building/a-theme-switch-component) on web.dev blog.
+- [Using CSS custom properties](//developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on MDN.
+- [Can we have custom media queries, please?](https://www.stefanjudis.com/notes/can-we-have-custom-media-queries-please/) by Stefan Judis.
+- [Logical properties](//web.dev/learn/css/logical-properties) on web.dev.
+- [Future CSS: Text Wrap Pretty](//alexpate.com/posts/future-css-text-wrap-pretty) by Alex Pate.
+- [A Guide To Modern CSS Colors With RGB, HSL, HWB, LAB And LCH](https://www.smashingmagazine.com/2021/11/guide-modern-css-colors/) by Michelle Barker on Smashing Magazine.
+- [CSS color-scheme-dependent colors with light-dark()](//web.dev/articles/light-dark) by Bramus on web.dev.
+- [A theme switch component](//web.dev/articles/building/a-theme-switch-component) on web.dev blog.
