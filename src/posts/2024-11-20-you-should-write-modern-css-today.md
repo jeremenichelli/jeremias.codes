@@ -288,9 +288,9 @@ The language is really attacking several fronts, not only you need to write less
 - [Using CSS Nesting](//developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting) on MDN.
 - [Cascade Layers Guide](//css-tricks.com/css-cascade-layers/) by Miriam Suzanne on CSS Tricks.
 - [Using CSS custom properties](//developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on MDN.
-- [Can we have custom media queries, please?](https://www.stefanjudis.com/notes/can-we-have-custom-media-queries-please/) by Stefan Judis.
+- [Can we have custom media queries, please?](//www.stefanjudis.com/notes/can-we-have-custom-media-queries-please/) by Stefan Judis.
 - [Logical properties](//web.dev/learn/css/logical-properties) on web.dev.
 - [Future CSS: Text Wrap Pretty](//alexpate.com/posts/future-css-text-wrap-pretty) by Alex Pate.
-- [A Guide To Modern CSS Colors With RGB, HSL, HWB, LAB And LCH](https://www.smashingmagazine.com/2021/11/guide-modern-css-colors/) by Michelle Barker on Smashing Magazine.
+- [A Guide To Modern CSS Colors With RGB, HSL, HWB, LAB And LCH](//www.smashingmagazine.com/2021/11/guide-modern-css-colors/) by Michelle Barker on Smashing Magazine.
 - [CSS color-scheme-dependent colors with light-dark()](//web.dev/articles/light-dark) by Bramus on web.dev.
 - [A theme switch component](//web.dev/articles/building/a-theme-switch-component) on web.dev blog.
