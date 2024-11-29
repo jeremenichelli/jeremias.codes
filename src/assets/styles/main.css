@@ -54,32 +54,26 @@ main {
 }
 
 .section__title {
+  border-radius: var(--radius--small);
   font-size: var(--typography--07);
   font-weight: 900;
   line-height: var(--leading--compact);
-  margin: 0;
   letter-spacing: var(--letter-spacing--small);
-  scroll-margin-block-start: var(--spacing--small);
+  margin: 0;
   outline-offset: 4px;
-  border-radius: var(--radius--small);
-
-  /* "pretty" is still not supported, so balance is a fallback. */
+  scroll-margin-block-start: var(--spacing--small);
   text-wrap: balance;
-  text-wrap: pretty;
 }
 
 .section__title__main {
+  border-radius: var(--radius--small);
   font-size: var(--typography--08);
   font-weight: 900;
   line-height: var(--leading--compact);
   margin: 0;
-  scroll-margin-block-start: var(--spacing--small);
   outline-offset: 4px;
-  border-radius: var(--radius--small);
-
-  /* "pretty" is still not supported, so balance is a fallback. */
+  scroll-margin-block-start: var(--spacing--small);
   text-wrap: balance;
-  text-wrap: pretty;
 }
 
 .section__subtitle {
@@ -134,9 +128,7 @@ main {
     scroll-margin-block-start: var(--spacing--small);
     outline-offset: 4px;
     border-radius: var(--radius--small);
-    /* "pretty" is still not supported, so balance is a fallback. */
     text-wrap: balance;
-    text-wrap: pretty;
   }
 
   h2 {
@@ -292,9 +284,8 @@ blockquote {
   font-style: italic;
   margin: 0;
   max-width: 20rem;
-  /* "pretty" is still not supported, so balance is a fallback. */
   text-wrap: balance;
-  text-wrap: pretty;
+  word-break: keep-all;
 }
 
 .list__title__link {
