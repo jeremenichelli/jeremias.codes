@@ -53,7 +53,7 @@ export const blockquote = (quote, cite) => {
  * @returns {string} returns a string template containing the code snippet's link.
  */
 export const featuredLink = (link, copy) => {
-  return `<p class="featured-link"><a href=${link} rel="noopener noreferrer" target="_blank">${copy ? copy : 'See this example in action'}</a></p>`;
+  return `<p class="featured-link"><a href="${link}" rel="noopener noreferrer" target="_blank">${copy ? copy : 'See this example in action'}</a></p>`;
 };
 
 /**
