@@ -188,6 +188,10 @@ code {
   padding: 3px;
   vertical-align: middle;
   word-break: keep-all;
+
+  /* Necessary text box trim hack. */
+  position: relative;
+  top: -1px;
 }
 
 pre {
@@ -215,6 +219,9 @@ pre {
     /* Allow padding on horizontal overflow. */
     display: inline-block;
     padding: 0 var(--spacing--base);
+
+    /* Reset text box trim hack. */
+    position: static;
   }
 }
 
