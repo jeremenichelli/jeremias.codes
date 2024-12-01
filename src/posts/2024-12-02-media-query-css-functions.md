@@ -1,11 +1,11 @@
 ---
 title: What if media queries were CSS functions
-excerpt: While rebuilding this site I went all-in for newer CSS features. One of them was the light-dark function, which reduced the amount of code needed for theming by a lot. What would happen if other media queries were also functions?
+excerpt: While rebuilding this site I went all-in for newer CSS features. One of them was the light-dark function, which reduced the amount of code needed for theming by a lot. It got me thinking, what would happen if other media queries were also functions?
 ---
 
-Remember that time when all applications and sites suddenly implemented a dark mode? There are many implementions, binary switches with both options, and triple state controls adding the device configuration choice, and some even just implementing this system option.
+There are many versions of color scheme controls around the web. Binary switches with both light and dark options, triple state controls with an additional system choice, and other sites directly consume this system value.
 
-The spec allowed us to tap into this last system option fairly easy.
+The CSS spec allowed us to tap into this last one fairly easily.
 
 ```css
 :root {
@@ -28,17 +28,17 @@ body {
 }
 ```
 
-Small sites and maybe some side projects are fine with a small gorup of variables, things get messier when you are in a complex product though.
+Small sites and maybe some side projects are fine with a small group of variables, but things get messier when you are in a complex product.
 
-In design system and application I worked in the past, we had hundreds of color tokens making maintenance a real burden.
+In design systems and applications I worked in the past, we had hundreds of color tokens, making maintenance a real burden.
 
-We, humans, struggle a lot with long lists, so you could easily miss the dark version of one of those tokens, misspelled one, or even forget to delete deprecated ones.
+We, humans, struggle a lot with long lists, so you could easily miss the dark version of one of those tokens, misspell one, or even forget to delete deprecated ones.
 
 ## The new light-dark function
 
-We were not super used to having functions in CSS. We saw them first in new color models, and now it's becoming a pretty common pattern after CSS variables and other features got accepted.
+We saw function notation in CSS first in transform methods and new color models, and now it's becoming a pretty common pattern in newer features.
 
-For light-dark, this newer syntax allows you to define first the color under the light scheme and later the dark one.
+For light-dark uses this syntax, and allows you to define the color on the light scheme and the dark one for a property or variable in the same line.
 
 ```css
 :root {
@@ -49,19 +49,17 @@ For light-dark, this newer syntax allows you to define first the color under the
 }
 ```
 
-If you have a big collection of variables, this literally halves the amount of lines you need, plus the media query syntax wrapping.
+If you have a big collection of variables, it literally halves the amount of lines you need, and eliminates the need for the media query wrapping.
 
-Though it is already present in all modern browsers, their inclusion was recent and there are not-so-old versions with fair usage where it is not. I wouldn't just use it on production. Check the [caniuse.com](//caniuse.com/mdn-css_types_color_light-dark) page of this feature for reference.
+Though it is already present in all modern browsers, their inclusion was recent so I wouldn't just use it on production.
 
-The good news is that it is incredibly easy to transpile this at build time.
+Good news is it is incredibly easy to transpile this feature at build time.
 
 ## How backwards compatibility works
 
 We are used to seeing transpile as a build step for JavaScript, but it can also be done for CSS. This site actually uses modern CSS syntax, which gets transformed to a "more compatible" one.
 
-The build tool I am using, [Lightning CSS](//lightningcss.dev) does something really smart to make this syntax compatible in older browsers.
-
-To understand how it works, we need to break down some implementation details around CSS variables spec you might not be aware of.
+The build tool I am using, [Lightning CSS](//lightningcss.dev) does something really smart to make this compatible in older browsers. To understand how it works, we need to break down some implementation details around CSS variables you might not be aware of.
 
 The first one, **a variable can take other multiple variable declarations**, it will ignore the unset ones until it sequentially reaches an actual value.
 
@@ -82,7 +80,7 @@ The first one, **a variable can take other multiple variable declarations**, it 
 
 An important note, the variables though unset, need to be present. If the parser detects an unpresent or invalid one it will default to `inherit` per spec definition.
 
-Next thing, the `var()` function, **it takes two arguments**. If the variable is not present for that scope, the second one acts as a fallback.
+Next thing, the `var()` function **takes two arguments**, when the variable in the first position is not present, the value on the second one acts as a fallback.
 
 ```css
 .box {
@@ -92,7 +90,7 @@ Next thing, the `var()` function, **it takes two arguments**. If the variable is
 
 Because `--falsy` is not defined, the second value gets computed.
 
-The final bit, and something that surprised me, when the value of the variable in the first argument is `initial`, the variable declaration gets accepted but it resolves to the fallback value.
+The final bit that surprised me, when the value of the variable in the first argument is `initial` its declaration gets accepted, but resolves to the fallback value.
 
 ```css
 :root {
@@ -111,7 +109,7 @@ All these three aspects enable an interesting pattern in CSS.
 
 ### Logical flags in CSS
 
-Combining all of the above allows you to set a pair of flags you can modify on a media query or under any other selector to modify its value.
+Combining all of the above, you can set a pair of flags you can modify on a media query or under any other selector to later use as a single line condition for properties.
 
 ```css
 :root {
@@ -121,13 +119,13 @@ Combining all of the above allows you to set a pair of flags you can modify on a
 
 @media (max-width: 500px) {
   :root {
-    --flag:;
+    --flag: ;
     --negated-flag: initial;
   }
 }
 ```
 
-Because there's not a `not` function or a `!` operator as you might know it in JavaScript, you need two variables to hold the negated value of the flag.
+Because there's not a `not` function or a `!` operator as you might know it in JavaScript, we need two variables to hold the negated value of the flag.
 
 This is how you would use it inside a variable declaration.
 
@@ -152,11 +150,15 @@ This is how you would use it inside a variable declaration.
 
 {% featuredLink '//codepen.io/jeremenichelli/pen/QwLWzLZ?editors=0100' %}
 
-By default, our `--flag` variable has `initial` as value, so `--show-box` resolves to `block`. When the viewport shrinks the media query interchange the two flags values and the second one gets computed.
+All the double flag management might look like over-engineering just to modify a property, but notice how display is only declared just once.
 
-It looks like over-engineering, but the pattern enables transpiling for `light-dark`.
+This is the pattern that enables transpiling for `light-dark`.
 
-**Lightning CSS** adds two flags, one for light color scheme and another one for dark, flips their values under the `prefers-color-scheme` media query and transforms the syntax of each function.
+### The final result
+
+What you saw is what **Lightning CSS** actually does.
+
+It sets two global flags, one for light color scheme and another one for dark, flips their values under the `prefers-color-scheme` media query and transforms each `light-dark` occurrence to a set of flagged variables.
 
 So your code goes from this.
 
@@ -189,19 +191,15 @@ To this transpiled result.
 }
 ```
 
-This smart trick got me thinking about other media queries that were recently added to the CSS spec and we could take advantage in this form.
+This smart trick got me thinking about other media queries recently added to the CSS spec that we could use in this form.
 
-## Most of your media queries are binary states
+## Media queries are binary states
 
 If you think about it, every time you declare a media query, you are creating a binary state. Something applies or doesn't apply depending on a condition.
 
-Inside media queries you add styles for several selectors, modify multiple rules for each or assign new values to CSS variables.
+This is why this new `light-dark` function makes so much sense. Let's expand this syntax to other similar media queries.
 
-But as I mentioned before, on this last case the amount of lines of code grows and readability takes a toll.
-
-### Media queries as functions
-
-For example the still experimental `prefers-reduced-transparency` query. Important to avoid opaque colors when the user requires it for better readability.
+For example the still experimental `prefers-reduced-transparency` one. Important to avoid opaque colors when the user requires it for better readability.
 
 ```css
 .toolbar {
@@ -245,7 +243,9 @@ What if this was under a method syntax too?
 }
 ```
 
-Another one related to accessibility and widely available is `prefers-reduced-motion`, which could benefit from this form of declaration.
+Much shorter but still easy to reason what's going on.
+
+Another query widely available is `prefers-reduced-motion`, which could also benefit from this form of declaration.
 
 ```css
 .menu {
@@ -258,9 +258,11 @@ Another one related to accessibility and widely available is `prefers-reduced-mo
 }
 ```
 
-Now, imaging being able to apply **any media query** as a function. Something possible via custom media, a feature we are still waiting for browsers to prioritize.
+Let's expand this even a bit further.
 
-You could declare a custom media query, and then use it at rule level through a method, let's call it `apply-custom-media` for now.
+Imagine being able to apply **any media query** as a function. Something like this could be possible by combining **custom media** with this syntax.
+
+Let's call this hypothetical new feature `apply-custom-media` for now.
 
 ```css
 @custom-media --big-devices (min-width: 640px);
@@ -275,12 +277,17 @@ You could declare a custom media query, and then use it at rule level through a 
 }
 ```
 
-This hypothetical method would take first the name of the custom media, then the value when the query applies, and finally the fallback.
+The function would take first the name of the custom media, then the value when the query applies, and finally a fallback.
 
-When you need to modify several rules a nested media query might seem a better option, but for single rules and CSS variable declarations it could really benefit the developer experience.
+The best thing, both features are easy to transpile until they get widely adopted.
+
+## Wrap-up
+
+When you need to modify several rules or selectors, a nested media query seems like a better option, but for single line modifications and CSS variable declarations custom media plus value functions syntax could be a game changer in developer experience.
 
 ## Further reading
 
+- [CSS value functions](//developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions) on MDN.
 - [You should write modern CSS, today](/2024/11/you-should-write-modern-css-today/) on this blog.
 - [Transpilation section](<//lightningcss.dev/transpilation.html#light-dark()-color-function>) on Lightning CSS docs
 - [Using CSS custom properties](//developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on MDN.
