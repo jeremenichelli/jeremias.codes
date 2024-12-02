@@ -283,7 +283,7 @@ The best thing, both features are easy to transpile until they get widely adopte
 
 ## Wrap-up
 
-When you need to modify several rules or selectors, a nested media query seems like a better option, but for single line modifications and CSS variable declarations custom media plus value functions syntax could be a game changer in developer experience.
+When you need to modify several rules or selectors, a nested media query seems like a better option, but for a single property change or variable declarations, custom media with value functions syntax could be a game changer in developer experience.
 
 ## Further reading
 
