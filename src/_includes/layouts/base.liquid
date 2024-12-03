@@ -15,7 +15,7 @@
         {%- if subtitle -%}<p class="section__subtitle">{{ subtitle }}</p>{%- endif -%}
         {%- if type == 'post' -%}
           <p class="post__subtitle">
-            <time class="post__date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%b %d, %Y' }}</time>
+            <time class="post__date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%b %d, %Y', 'UCT' }}</time>
             {%- if host != null -%}
               &nbsp;<span class="post__host">For <a href="{{ external_url }}"  target="_blank" rel="noopener noreferrer">{{ host }}</a></span> 
             {%- endif -%}

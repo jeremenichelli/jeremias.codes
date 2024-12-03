@@ -14,7 +14,7 @@ tag_line: Do you want me to write for your publication? Click [here](mailto:jmen
           <a class="list__title__link" href="{{ post.url }}">{{ post.data.title }}</a>
         </h2>
         <p class="list__subtitle">
-          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d, %Y' }}</time>
+          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d, %Y', 'UCT' }}</time>
           {%- if post.data.host -%}
             &nbsp;<span class="list__host">For {{ post.data.host }}</span>
           {%- endif -%}

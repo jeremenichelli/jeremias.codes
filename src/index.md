@@ -19,7 +19,7 @@ tag_line: You can also see a summary of my [experience](/about/#experience) and 
           <a class="list__title__link" href="{{ post.url }}">{{ post.data.title }}</a>
         </h3>
         <p class="list__subtitle">
-          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d, %Y' }}</time>
+          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d, %Y', 'UCT' }}</time>
           {%- if post.data.host -%}
             &nbsp;<span class="list__host">For {{ post.data.host }}</span>
           {%- endif -%}

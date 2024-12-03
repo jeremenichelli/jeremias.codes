@@ -14,7 +14,7 @@ tag_line: In the meantime my community efforts go to being the best ambassador p
           <a class="list__title__link" href="{{ talk.url }}" target="_blank" rel="noopener noreferrer">{{ talk.title }}</a>
         </h2>
         <p class="list__subtitle">
-          <time datetime="{{ talk.date | date: '%Y-%m-%d' }}">{{ talk.date | date: '%b %d, %Y' }}</time> <span class="list__host">For {{ talk.event }}</span>
+          <time datetime="{{ talk.date | date: '%Y-%m-%d' }}">{{ talk.date | date: '%b %d, %Y', 'UCT' }}</time> <span class="list__host">For {{ talk.event }}</span>
         </p>
       </li>
     {%- endfor -%}
