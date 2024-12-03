@@ -2,8 +2,8 @@
 layout: base
 title: Speaking
 type: speaking
-excerpt: I used to give talks and enjoyed it a lot, made tons of friends. For now I stopped. I might get back to it in the future, or not.
-tag_line: In the meantime my community efforts go to being the best ambassador possible for [JSHeroes](//jsheroes.io/) conference.
+excerpt: I used to give talks and enjoyed it a lot, made tons of friends. I took a break for now, but might get back to it in the future.
+tag_line: In the meantime my community efforts go to being the best ambassador possible to the [JSHeroes](//jsheroes.io/) conference.
 ---
 
 <div class="section section__with-divider">

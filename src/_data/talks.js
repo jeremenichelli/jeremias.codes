@@ -3,7 +3,7 @@ export default [
     title: 'Paving the adoption path of your Design System',
     event: 'JSHeroes meetup',
     url: 'https://youtu.be/ZU3pPNs_8Uk',
-    date: '2019-09-26',
+    date: '2020-04-23',
     abstract:
       'Design systems are popping up in all companies to help developers build interfaces faster while staying consistent with the design of the product. It might happen that your company has one, but your teams are not using it or they are stuck in an old version of it.<br><br>Not all design system codebases are created in the ideal context and conditions. I’m going to show you how in my team we battled tech debt, building straight forward processes and infrastructure, to help our teams move forward as our design system evolves.'
   },
