@@ -49,9 +49,9 @@
       --link: hsl(60, 100%, 75%);
       --accent: hsl(0, 100%, 50%);
       --surface--base: hsl(220, 80%, 27%);
-      --surface--inverted: hsl(220, 80%, 20%);
+      --surface--inverted: hsl(220, 80%, 18%);
       --text--primary: hsl(60, 100%, 95%);
-      --text--secondary: hsl(60, 100%, 95%);
+      --text--secondary: hsl(220, 100%, 95%);
       --divider: hsl(60, 50%, 85%);
       --text--primary--inverted: hsl(60, 100%, 95%);
     }
