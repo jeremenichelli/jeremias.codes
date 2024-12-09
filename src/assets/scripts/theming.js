@@ -1,8 +1,6 @@
 import * as storage from './storage.js';
 import { THEME_KEY } from './utils.ts';
 
-let focusedThemeOption;
-
 const themeButton = document.querySelector('.navigation__theme-button');
 const themeMenuWrapper = document.querySelector('.theme-menu__wrapper');
 const themeMenu = document.querySelector('.theme-menu');
@@ -54,8 +52,7 @@ const openThemeMenu = async () => {
       themeMenuWrapper.style.setProperty('--height', `auto`);
 
       const themeOptions = getVisibleThemeOptions();
-      focusedThemeOption = themeOptions[0];
-      focusedThemeOption?.focus();
+      themeOptions[0]?.focus();
 
       themeMenuWrapper.removeEventListener('transitionend', onTransitionEnd);
 
@@ -101,7 +98,7 @@ const closeThemeMenu = async (focusOnThemeButton = true) => {
   themeMenuWrapper.addEventListener('transitionend', onTransitionEnd);
 
   /**
-   * We first set the initial height again because we can transition from `auto` value,
+   * We first set the initial height again because we can't transition from `auto` value,
    * later we wait for two paint rounds to avoid overriding the value during mid-transition.
    *
    * In the end we set it back to `0px`
@@ -176,17 +173,14 @@ getThemeOptions().forEach((option) => {
   currentThemeOption?.setAttribute('aria-checked', 'true');
 
   option.addEventListener('click', (event) => {
-    const target = event.currentTarget;
-    const theme = target.dataset.value;
+    const theme = event.currentTarget.dataset.value;
     setTheme(theme);
-    focusedThemeOption = event.currentTarget;
   });
 
   option.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key == ' ') {
       event.preventDefault();
-      const target = event.currentTarget;
-      const theme = target.dataset.value;
+      const theme = event.currentTarget.dataset.value;
       setTheme(theme);
     }
   });
@@ -213,39 +207,35 @@ themeMenuWrapper.addEventListener('keydown', (event) => {
   if (event.key == 'ArrowDown') {
     event.preventDefault();
     const focusedThemeOptionIndex = themeOptions.findIndex(
-      (option) => option === focusedThemeOption
+      (option) => option === document.activeElement
     );
     const nextIndex =
       focusedThemeOptionIndex + 1 === themeOptions.length
         ? 0
         : focusedThemeOptionIndex + 1;
-    focusedThemeOption = themeOptions[nextIndex];
-    focusedThemeOption?.focus();
+    themeOptions[nextIndex]?.focus();
   }
 
   if (event.key == 'ArrowUp') {
     event.preventDefault();
     const focusedThemeOptionIndex = themeOptions.findIndex(
-      (option) => option === focusedThemeOption
+      (option) => option === document.activeElement
     );
     const nextIndex =
       focusedThemeOptionIndex === 0
         ? themeOptions.length - 1
         : focusedThemeOptionIndex - 1;
-    focusedThemeOption = themeOptions[nextIndex];
-    focusedThemeOption?.focus();
+    themeOptions[nextIndex]?.focus();
   }
 
   if (event.key == 'Home') {
     event.preventDefault();
-    focusedThemeOption = themeOptions[0];
-    focusedThemeOption?.focus();
+    themeOptions[0]?.focus();
   }
 
   if (event.key == 'End') {
     event.preventDefault();
-    focusedThemeOption = themeOptions[themeOptions.length - 1];
-    focusedThemeOption?.focus();
+    themeOptions[themeOptions.length - 1]?.focus();
   }
 
   if (event.key == 'Tab') {
@@ -261,11 +251,11 @@ window.addEventListener(
   (event) => {
     const isExpanded =
       themeButton.getAttribute('aria-expanded') == 'true' ? true : false;
-    if (
-      !themeMenuWrapper.contains(event.target) &&
-      isExpanded &&
-      event.target !== themeButton
-    ) {
+    const isButton = event.target === themeButton;
+    const isOption =
+      getThemeOptions().findIndex((option) => option === event.target) !== -1;
+
+    if (!isOption && isExpanded && !isButton) {
       closeThemeMenu();
     }
   },
@@ -280,6 +270,7 @@ window.addEventListener(
   (event) => {
     const isExpanded =
       themeButton.getAttribute('aria-expanded') == 'true' ? true : false;
+
     if (isExpanded && event.key == 'Escape') {
       event.preventDefault();
       closeThemeMenu();

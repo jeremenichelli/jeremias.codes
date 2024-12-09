@@ -366,6 +366,17 @@ blockquote {
   --menu-transition-height-delay: 0ms;
   --menu-transition-opacity-delay: 0ms;
 
+  content-visibility: hidden;
+  display: flex;
+  height: var(--height);
+  opacity: var(--opacity);
+  transition:
+    height var(--menu-transition-duration) ease-in-out
+      var(--menu-transition-height-delay),
+    opacity var(--menu-transition-duration) ease-in-out
+      var(--menu-transition-opacity-delay);
+  will-change: height, opacity;
+
   &[aria-hidden='false'] {
     --menu-transition-opacity-delay: var(--menu-transition-duration);
   }
@@ -377,17 +388,6 @@ blockquote {
   &:where(.enabled) {
     content-visibility: visible;
   }
-
-  content-visibility: hidden;
-  display: flex;
-  height: var(--height);
-  opacity: var(--opacity);
-  transition:
-    height var(--menu-transition-duration) ease-in-out
-      var(--menu-transition-height-delay),
-    opacity var(--menu-transition-duration) ease-in-out
-      var(--menu-transition-opacity-delay);
-  will-change: height, opacity;
 }
 
 .theme-menu {
