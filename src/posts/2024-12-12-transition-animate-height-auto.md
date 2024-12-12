@@ -155,7 +155,7 @@ const toggleBox = () => {
 
 {% featuredLink '//codepen.io/jeremenichelli/pen/EaYgKpz' %}
 
-These necessary workarounds do the trick, we have an element that expands with `auto` as a final state. Hopefully, all of them will become obsolete soon.
+All these necessary workarounds get us to where we wanted. Hopefully all these tricks will become obsolete soon.
 
 ### Accessibility checks
 
