@@ -23,8 +23,8 @@ export default function eleventy(config) {
     domDiff: false,
     port: 5173
   });
-  config.addWatchTarget('src/assets/styles/*.css');
-  config.addWatchTarget('src/assets/scripts/*.js');
+  config.addWatchTarget('src/assets/styles/**/*.css');
+  config.addWatchTarget('src/assets/scripts/**/*.js');
 
   /* DATA */
   config.addGlobalData('buildTimestamp', () => {
