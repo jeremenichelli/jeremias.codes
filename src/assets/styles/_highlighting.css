@@ -60,6 +60,7 @@
   code:where([class*='language']) {
     .comment {
       color: var(--highlighting--comment);
+      font-style: italic;
     }
 
     .operator,
