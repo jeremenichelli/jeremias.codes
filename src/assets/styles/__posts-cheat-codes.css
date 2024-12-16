@@ -1,0 +1,27 @@
+.konami--unlocked {
+  display: none;
+}
+
+[data-konami-unlocked] {
+  & .konami--locked {
+    display: none;
+  }
+
+  & .konami--unlocked {
+    display: block;
+  }
+}
+
+.hedgehog--unlocked {
+  display: none;
+}
+
+[data-hedgehog-unlocked] {
+  & .hedgehog--locked {
+    display: none;
+  }
+
+  & .hedgehog--unlocked {
+    display: block;
+  }
+}
