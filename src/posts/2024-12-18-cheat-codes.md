@@ -25,7 +25,7 @@ Most of those games I played had cheat codes, combinations of buttons you would 
 
 **But why would a game developer allow you to cheat?** Initially those secret codes were there for developers to go faster through the games while testing them.
 
-Cheat codes made building and testing games bearable, but once developers forgot to delete them before release, and they became available to the player.
+Cheat codes made building those games bearable, but one time developers forgot to delete them before release, and they became available to the player.
 
 Enough story time, let me show you how I got a cheat codes script working.
 
@@ -110,7 +110,7 @@ window.addEventListener('keydown', (event) => {
 });
 ```
 
-Now, let's build our collection of cheat codes, starting with a simple object with a _code_ property holding the sequence of keys we expect, and the _action_ to execute when it gets detected.
+Now, to define our cheat codes, we start with a simple object with a _code_ property holding its sequence of keys, and the _action_ to execute when it gets detected.
 
 ```js
 const cheatCode = {
@@ -123,7 +123,7 @@ In this example, the code corresponds to the **A**, **B**, **C** and **D** key s
 
 _You can check in keycode.info the references in the event object for different keys, it will help you read the cheat codes present in following code snippets._
 
-We want more than one cheat code, so we place the one we just created and any additional ones in an iterable.
+We want a collection of cheat codes, so we place the one we just created and any additional ones in an iterable.
 
 ```js
 const cheatCodes = [
@@ -138,7 +138,7 @@ const cheatCodes = [
 ];
 ```
 
-Finally, for each event the user triggers we go over our array, and when a `code` equals our `storedInput` variable, we call the corresponding `action` method.
+Finally, for each event the user triggers we go over our array, and when a `code` equals the `storedInput` variable, we call the corresponding `action` method.
 
 ```js
 let lastInputTime = performance.now();
@@ -185,8 +185,6 @@ Alright, let's explore the actual cheat codes present on this site.
 ## Hidden themes
 
 Building a theme menu here is what initially sparked the idea of having a couple of options hidden behind cheat codes.
-
-Unlocking any new theme immediately sets it, and adds an option within the theme menu to select it whenever you want.
 
 The first one is behind **the Konami code**, probably the most famous of the cheat codes in the history of video games.
 
