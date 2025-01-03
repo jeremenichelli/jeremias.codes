@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="system" class="no-js" >
-
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="system" class="no-js">
   {% include 'head' %}
-  
+
   <body data-instant-mousedown-shortcut data-instant-intensity="viewport">
-    
     <header>
       {% include 'nav' %}
     </header>
@@ -12,12 +10,19 @@
     <main id="main" class="main" aria-label="Main content">
       <header class="section">
         <h1 class="section__title__main">{{ title }}</h1>
-        {%- if subtitle -%}<p class="section__subtitle">{{ subtitle }}</p>{%- endif -%}
+        {%- if subtitle -%}
+          <p class="section__subtitle">{{ subtitle }}</p>
+        {%- endif -%}
         {%- if type == 'post' -%}
-          <p class="post__subtitle">
-            <time class="post__date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%b %d, %Y', 'UCT' }}</time>
+          <p class='post__subtitle'>
+            <time class="post__date" datetime="{{ page.date | date: '%Y-%m-%d' }}"">
+              {{ page.date | date: '%b %d, %Y', 'UCT' }}
+            </time>
             {%- if host != null -%}
-              &nbsp;<span class="post__host">For <a href="{{ external_url }}"  target="_blank" rel="noopener noreferrer">{{ host }}</a></span> 
+              &nbsp;
+                <span class="post__host">
+                  For <a href="{{ external_url }}" target="_blank" rel="noopener noreferrer">{{ host }}</a>
+                </span>
             {%- endif -%}
           </p>
         {%- endif -%}
@@ -26,13 +31,13 @@
       {%- if excerpt -%}
         <div class="section">
           <p class="card__quote">
-            {{ excerpt | orphans | markdownify }}  
+            {{ excerpt | orphans | markdownify }}
           </p>
 
           {%- if excerpt_2 -%}
             <p class="card__quote">
-            {{ excerpt_2 | orphans | markdownify }}  
-          </p>
+              {{ excerpt_2 | orphans | markdownify }}
+            </p>
           {%- endif -%}
 
           {%- if tag_line -%}
@@ -41,27 +46,28 @@
         </div>
       {%- endif -%}
 
-      {{ content }}
+      {%- if type == 'post' or type == '404' -%}
+        <div class="section section__with-divider post__content">
+          {{ content }}
+        </div>
+      {%- else -%}
+        {{ content }}
+      {%- endif -%}
 
-      {%- if type != 'post' and type != '404' -%}
+      {%- if type != '404' -%}
         <div class="section section__with-divider">
           <div class="card">
             <p class="card__quote">
-              I am currently on sabbatical, but will soon resume the search for my next job. I prioritize positions around design systems, developer experience engineering and lastly product engineering.</p>
-            <p class="card__tag-line">Want to get in touch? Click <a href="mailto:jmenichelli@gmail.com">here</a> to contact me via email.</p>
-          </div>
-        </div>
-      {%- endif -%}
-
-      {%- if type == 'post' -%}
-        <div class="section section__with-divider">
-          <div class="card">
-            <p class="card__tag-line">Do you want me to write for your publication? Click <a href="mailto:jmenichelli@gmail.com">here</a> to contact me via email.</p>
+              Do you want me to speak at your conference or write for your publication?
+            </p>
+            <p class="card__tag-line">
+              Click <a href="mailto:jmenichelli@gmail.com">here</a> to contact me for collaborations.
+            </p>
           </div>
         </div>
       {%- endif -%}
     </main>
-      
+
     {% include 'footer' %}
   </body>
 </html>
