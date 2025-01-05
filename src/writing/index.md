@@ -2,7 +2,7 @@
 layout: base
 title: Writing
 type: writing
-excerpt: List of articles written for this blog and other publications.
+excerpt: I often turn my thoughts and experiences into articles. Check out them all out here, from the early days of blogging until now.
 tag_line: Are you looking for a guest writer? Click [here](mailto:jmenichelli@gmail.com) to contact me.
 ---
 

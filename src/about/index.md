@@ -6,7 +6,6 @@ excerpt: I’m Jeremias Menichelli, a web developer with over a decade of experi
 tag_line: I’ve collaborated with global teams, focusing on accessibility, scalable products and codebases, and developer experience.
 ---
 
-<!--
 ## Accessibility
 
 From the very beginning of my career, I’ve worked on projects where accessibility wasn’t an after-thought, but an absolute must.
@@ -35,25 +34,14 @@ In fact, [some of those projects](https://thefwa.com/cases/cars-3) received indu
 
 ## Community
 
-- Besides my day job, I write about emerging technologies and side projects I find exciting in my blog and for publications like [CSS-Tricks](//css-tricks.com) and [Smashing Magazine](//smashing-magazine.com). You can find most of my content in the [writing](/writing) section of this site.
-- My passion for well-documented features and clear communication also led to my role as the Documentation Lead for [webpack](//github.com/webpack/webpack), a high-profile open-source project.
-- I’ve also had the pleasure of speaking at conferences, giving keynotes, hosting workshops, and even acting as a master of ceremonies at meetups. Though I’ve paused for now, you can check out my past talks in the [speaking](/speaking) section.
-- Currently, I’m focused on being the best ambassador I can for [JSHeroes](//jsheroes.io), where I help with content, agenda planning, and communication for the event.
--->
+Besides my day job, I write about emerging technologies and side projects I find exciting in my blog and for publications like [CSS-Tricks](//css-tricks.com/author/jmenichelli/) and [Smashing Magazine](//www.smashingmagazine.com/author/jeremias-menichelli/).
 
-<div class="section section__with-divider">
-  <header>
-      <h2 class="section__title" id="experience">Experience</h2>
-  </header>
+You will find most of my content in the [writing](/writing) section of this site.
 
-  <ol class="list" role="list" aria-labelledby="recent-projects">
-    {%- for job in jobs -%}
-      <li class="list__item" role="listitem">
-        <h3 class="list__title">{{ job.title }}</h3>
-        <p class="list__subtitle">
-          <span>{{ job.period }}</span>&nbsp;<a href="{{ job.company_url }}" target="_blank" rel="noopener noreferrer">{{ job.company }}</a>
-        </p>
-      </li>
-    {%- endfor -%}
-  </ol>
-</div>
+My passion for well-documented features and clear communication also led to my role as the Documentation Lead for [webpack](//github.com/webpack/webpack), a high-profile open-source project.
+
+I’ve also had the pleasure of speaking at conferences, giving keynotes, hosting workshops, and even acting as a master of ceremonies at meetups. Though I’ve paused for now, you can check out my past talks in the [speaking](/speaking) section.
+
+## Now
+
+Currently, I am working as a Senior Documentation Engineer at [Storyblok](//storyblok.com) and act as an ambassador for the [JSHeroes](//jsheroes.io) conference, where I help with content, agenda planning, and communication for the event.
