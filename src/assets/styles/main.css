@@ -238,7 +238,9 @@ blockquote {
 }
 
 .quote {
+  color: var(--text--secondary);
   font-size: var(--typography--01);
+  font-weight: 700;
   line-height: var(--leading--base);
   margin: 0;
 
@@ -253,7 +255,7 @@ blockquote {
   line-height: var(--leading--sub);
   font-weight: 900;
   font-size: var(--typography--02);
-  margin-block: var(--spacing--xsmall) 0;
+  margin-block: var(--spacing--xxsmall) 0;
 }
 
 /* LISTS */
