@@ -25,7 +25,7 @@ After my first year of being a "professional" web developer, with "professional"
 
 The goal wasn't to publish constantly, but to put out pieces about what I learned during my first years of development. Some of which turned into days and nights of research, because I care about what I publish, even if nobody reads.
 
-Then, I wrote on [webpack's blog](//medium.com/webpack/brief-introduction-to-scope-hoisting-in-webpack-8435084c171f), which led to my first [CSS-Tricks](//css-tricks.com/introduction-webpack-entry-output-loaders-plugins/) article, and later a piece on [Smashing Magazine](//www.smashingmagazine.com/2019/10/asynchronous-tasks-modern-javascript/), crossing something from my bucket list. You guessed it, my bucket list is nerdy and uninteresting.
+Then, I wrote on [webpack's blog](//medium.com/webpack/brief-introduction-to-scope-hoisting-in-webpack-8435084c171f), which led to my first [CSS-Tricks](//css-tricks.com/author/jmenichelli/) article, and later a piece on [Smashing Magazine](//www.smashingmagazine.com/author/jeremias-menichelli/), crossing something from my bucket list. You guessed it, my bucket list is nerdy and uninteresting.
 
 Along with all these, I started speaking at conferences, presenting at meetups, giving workshops, and suddenly I felt leaning naturally to "devrel" territory.
 
