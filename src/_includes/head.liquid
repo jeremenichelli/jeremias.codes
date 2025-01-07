@@ -19,7 +19,6 @@
   {% endif %}
   <title>{{ metaTitle }}</title>
   <link rel="alternate" href="{{ '/feed.xml' | prepend: site.url }}" title="{{ site.title }}" type="application/atom+xml">
-
   
   <!-- inline scripts -->
   {% script 'inline.js' 'inline' %}
@@ -32,7 +31,7 @@
   <link rel="preload" href="/assets/fonts/InterTight-Variable-subset.woff2" as="font" type="font/woff2" crossorigin="">
 
   <!-- deferred scripts -->
-  {% script 'main.js' 'defer' 'fetchpriority=high'  %}
+  {% script 'main.js' 'defer' 'fetchpriority=high' %}
   {% script 'instant-page.js' 'defer' 'fetchpriority=low' %}
 
   <!-- favicon definitions -->

@@ -1,12 +1,18 @@
 export default [
   {
-    title: 'Software Engineer and Design Systems Tech Lead',
+    title: 'Senior Documentation Engineer',
+    company: 'Storyblok',
+    company_url: 'https://storyblok.com',
+    period: '2025-Today'
+  },
+  {
+    title: 'Senior Software Engineer and Design Systems Tech Lead',
     company: 'TheyDo',
     company_url: 'https://theydo.com',
     period: '2023-2024'
   },
   {
-    title: 'Software Engineer at Platform and Design Systems Tech Lead',
+    title: 'Senior Software Engineer at Platform and Design Systems Tech Lead',
     company: 'New Relic',
     company_url: 'https://newrelic.com',
     period: '2019-2023'

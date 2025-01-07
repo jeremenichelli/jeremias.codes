@@ -2,8 +2,8 @@
 layout: base
 title: Speaking
 type: speaking
-excerpt: I used to give talks and enjoyed it a lot, made tons of friends. I took a break for now, but might get back to it in the future.
-tag_line: In the meantime my community efforts go to being the best ambassador possible to the [JSHeroes](//jsheroes.io/) conference.
+excerpt: Besides some speaking, workshop and mc-ing events in the past, my community efforts go on making JSHeroes the best conference possible, among other humans.
+tag_line: Are you looking for a speaker? Click [here](mailto:jmenichelli@gmail.com) to contact me.
 ---
 
 <div class="section section__with-divider">

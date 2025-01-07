@@ -3,7 +3,7 @@ layout: base
 title: Writing
 type: writing
 excerpt: I often turn my thoughts and experiences into articles. Check out them all out here, from the early days of blogging until now.
-tag_line: Do you want me to write for your publication? Click [here](mailto:jmenichelli@gmail.com) to contact me via email.
+tag_line: Are you looking for a guest writer? Click [here](mailto:jmenichelli@gmail.com) to contact me.
 ---
 
 <div class="section section__with-divider">
