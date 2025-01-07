@@ -1,6 +1,6 @@
 ---
 title: A bit of a change
-excerpt: I generally don't do "new job" posts, so this might be the first one. The main reason is, after more than a decade in front-end development positions, I am going to switch to another thing.
+excerpt: I believe this is the first time I write a post about a job update. The reason is, after more than a decade in front-end development positions, I am going to switch to another thing.
 ---
 
 It's not a radical change. I am not starting a new career as a music producer, a barista or an interior designer (for now), I am still going to be very much around tech and web communities.
