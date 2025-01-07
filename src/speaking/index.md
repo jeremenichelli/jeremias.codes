@@ -2,7 +2,7 @@
 layout: base
 title: Speaking
 type: speaking
-excerpt: Besides some speaking, workshop and mc-ing events in the past, my community efforts go on making JSHeroes the best conference possible, among other humans.
+excerpt: Besides some speaking, workshop and presenting at events in the past, my community efforts go on making JSHeroes the best conference possible.
 tag_line: Are you looking for a speaker? Click [here](mailto:jmenichelli@gmail.com) to contact me.
 ---
 
