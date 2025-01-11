@@ -44,8 +44,9 @@ export const unmarkdownify = (content) => {
  * @returns {string} Resulting string.
  */
 export const orphans = (content) => {
-  const regex = / (?=[^ ]*$)/;
-
-  // Replace the last space with another character, for example:
-  return content.replace(regex, '&nbsp;');
+  return content.split(/\s/g).reduce((accumulator, part, index, parts) => {
+    const isLastIndex = parts.length - 1 === index;
+    const separator = isLastIndex ? '&nbsp;' : ' ';
+    return accumulator + separator + part;
+  }, '');
 };
