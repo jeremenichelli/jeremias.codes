@@ -19,7 +19,7 @@ eleventyExcludeFromCollections: true
     {% for post in collections.posts %}
       <item>
         <title>{{ post.data.title }}</title>
-        <description>{{ post.data.excerpt }}</description>
+        <description>{{ post.data.excerpt | unmarkdownify }}</description>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
         {% capture pageUrl %}{{ post.url | prepend: site.url }}{% endcapture %}
         <link>{{ pageUrl }}</link>

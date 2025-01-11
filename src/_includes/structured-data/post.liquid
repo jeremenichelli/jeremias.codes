@@ -6,7 +6,7 @@
     "@id": "{{ url }}"
   },
   "headline": "{{ title }}",
-  "description": "{{ excerpt }}",
+  "description": "{{ excerpt | unmarkdownify }}",
   "image": "{{ site.logo }}",
   "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
   {% if page.data.lastModified %}
