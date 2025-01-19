@@ -1,5 +1,7 @@
+import { feedPlugin } from '@11ty/eleventy-plugin-rss';
 import syntaxHighlightPlugin from '@11ty/eleventy-plugin-syntaxhighlight';
 import pluginRss from '@11ty/eleventy-plugin-rss';
+import site from './src/_data/site.js';
 import {
   script,
   style,
@@ -70,6 +72,25 @@ export default function eleventy(config) {
 
   /* HTML MINIFIER */
   config.addTransform('htmlmin', htmlmin);
+
+  /* RSS */
+  config.addPlugin(feedPlugin, {
+    type: 'atom',
+    outputPath: '/feed.xml',
+    collection: {
+      name: 'posts',
+      limit: 0
+    },
+    metadata: {
+      language: 'en',
+      title: site.title,
+      subtitle: site.description,
+      base: site.url,
+      author: {
+        name: site.author.name
+      }
+    }
+  });
 
   // Return base config.
   return {
