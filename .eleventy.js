@@ -73,6 +73,24 @@ export default function eleventy(config) {
   /* HTML MINIFIER */
   config.addTransform('htmlmin', htmlmin);
 
+  /* DIRTY FEED TRANSFORM FOR IMAGE TAG */
+  /* TODO: Propose change to repository. */
+  config.addTransform('feed', (content, outputPath) => {
+    if (outputPath.endsWith('feed.xml')) {
+      return content.replace(
+        '<title>Jeremias Menichelli</title>',
+        `
+        <title>Jeremias Menichelli</title>
+        <image>
+          <title>Jeremias Menichelli</title>
+          <url>https://jeremias.codes/assets/images/og-me.png</url>
+          <link>https://jeremias.codes/</link>
+        </image>
+      `
+      );
+    }
+  });
+
   /* RSS */
   config.addPlugin(feedPlugin, {
     type: 'atom',
@@ -88,6 +106,11 @@ export default function eleventy(config) {
       base: site.url,
       author: {
         name: site.author.name
+      },
+      image: {
+        title: site.title,
+        link: site.url,
+        url: site.logo
       }
     }
   });
