@@ -2,10 +2,10 @@ import * as storage from './storage.js';
 import { getVisibleThemeOptions, setTheme } from './theming.js';
 
 /**
- * We are setting 750ms in between `keydown` events to keep the current
+ * We are setting 950ms in between `keydown` events to keep the current
  * cheat code stored, if not the previous string is dropped.
  */
-const TIME_THRESHOLD = 750;
+const TIME_THRESHOLD = 950;
 
 let currentCheatCode = '';
 let lastKeyDownTime = performance.now();
