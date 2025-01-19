@@ -73,22 +73,6 @@ export default function eleventy(config) {
   /* HTML MINIFIER */
   config.addTransform('htmlmin', htmlmin);
 
-  /* DIRTY FEED TRANSFORM FOR IMAGE TAG */
-  /* TODO: Propose change to repository. */
-  config.addTransform('feed', (content, outputPath) => {
-    if (outputPath.endsWith('feed.xml')) {
-      return content.replace(
-        '</updated>',
-        `</updated>
-  <image>
-    <title>Jeremias Menichelli</title>
-    <url>https://jeremias.codes/assets/images/og-me.png</url>
-    <link>https://jeremias.codes/</link>
-  </image>`
-      );
-    }
-  });
-
   /* RSS */
   config.addPlugin(feedPlugin, {
     type: 'atom',
