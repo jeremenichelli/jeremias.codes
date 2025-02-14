@@ -1,10 +1,10 @@
 ---
-title: The markdown filters your Eleventy projects need
+title: The markdown filters your Eleventy project needs
 excerpt: Migrating from my old Jekyll site to Eleventy meant two things, I lost a lot of out-of-the-box helpers, but at the same time gained the flexibility to extend any part of my site build pipeline via JavaScript.
 excerpt_2: While building one of these missing parts I used and no longer had, I realized I also needed its counterpart.
 ---
 
-It is clear Eleventy is heavily inspired by Jekyll, the static generator I used for the longest time. It came with Markdown and Liquid, an amazing combination.
+It is clear Eleventy is heavily inspired by Jekyll, the static generator I used for the longest time. It came with markdown and Liquid, an amazing combination.
 
 But it was also slow and hard to extend unless you knew Ruby, which I didn't.
 
@@ -31,19 +31,19 @@ export default function eleventy(config) {
 }
 ```
 
-This filter is really handy because it allows you to use Markdown with your front matter content or data you might fetch.
+This filter is really handy because it allows you to use markdown with your front matter content or data you might fetch.
 
 ```liquid
 {% raw %}{{ page.excerpt | markdownify }}{% endraw %}
 ```
 
-Eleventy allows you to override and configure the Markdown engine, so make sure they match to prevent inconsistencies. In my case, I am already providing my own instance so I make use of it for both filters and content.
+Eleventy allows you to override and configure the markdown engine, so make sure they match to prevent inconsistencies. In my case, I am already providing my own instance so I make use of it for both filters and content.
 
 ## The thing I realized after more than a decade of using this filter
 
-Funny enough, I was recently inspecting the build output and realized, well, I had Markdown syntax in places that didn't make any sense.
+Funny enough, I was recently inspecting the build output and realized, well, I had markdown syntax in places that didn't make any sense.
 
-So, if you have this filter, you might also need a kind of reversed one to extract only text nodes from Markdown syntax data.
+So, if you have this filter, you might also need a kind of reversed one to extract only text nodes from markdown syntax data.
 
 I present to you the `unmarkdownify` filter.
 
