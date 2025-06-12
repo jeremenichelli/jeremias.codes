@@ -1,11 +1,11 @@
 export default [
   {
-    title: 'Paving the adoption path of your Design System',
-    event: 'JSHeroes meetup',
-    url: 'https://youtu.be/ZU3pPNs_8Uk',
-    date: '2020-04-23',
+    title: 'The New Defaults of the Modern Web',
+    event: 'JSNation',
+    url: 'https://gitnation.com/contents/the-new-defaults-of-the-modern-web',
+    date: '2025-06-12',
     abstract:
-      'Design systems are popping up in all companies to help developers build interfaces faster while staying consistent with the design of the product. It might happen that your company has one, but your teams are not using it or they are stuck in an old version of it.<br><br>Not all design system codebases are created in the ideal context and conditions. I’m going to show you how in my team we battled tech debt, building straight forward processes and infrastructure, to help our teams move forward as our design system evolves.'
+      'More than a decade ago, kicking off any web project required a huge investment to cover basic capabilities like multi-language support or creative details like animations. Your project will always result in unmaintainable stylesheets and complex JavaScript code just to get to the finish line. Today, the web has become a more mature canvas. With real projects as examples, let me show how the platform has moved the start line for us developers to build innovative and accessible websites.'
   },
   {
     title: 'Paving the adoption path of your Design System',
