@@ -1,6 +1,14 @@
 export default [
   {
     title: 'The New Defaults of the Modern Web',
+    event: 'Lisboa JS',
+    url: 'https://luma.com/1qwvukzb',
+    date: '2025-09-15',
+    abstract:
+      'More than a decade ago, kicking off any web project required a huge investment to cover basic capabilities like multi-language support or creative details like animations. Your project will always result in unmaintainable stylesheets and complex JavaScript code just to get to the finish line. Today, the web has become a more mature canvas. With real projects as examples, let me show how the platform has moved the start line for us developers to build innovative and accessible websites.'
+  },
+  {
+    title: 'The New Defaults of the Modern Web',
     event: 'JSNation',
     url: 'https://gitnation.com/contents/the-new-defaults-of-the-modern-web',
     date: '2025-06-12',
