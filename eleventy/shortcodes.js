@@ -13,9 +13,7 @@ export async function script(file, ...options) {
   const buildTimestamp = this.ctx.environments.buildTimestamp;
   const inline = options.some((option) => option === 'inline');
   const attributes = options.filter((option) => option !== 'inline').join(' ');
-  const bundlePromise = bundle(file, inline, buildTimestamp);
-
-  const result = await bundlePromise;
+  const result = await bundle(file, inline, buildTimestamp);
 
   const script = inline
     ? `<script ${attributes}>${result}</script>`
@@ -30,9 +28,9 @@ export async function script(file, ...options) {
  */
 export async function style(file) {
   const buildTimestamp = this.ctx.environments.buildTimestamp;
-  const css = await styles(file, buildTimestamp);
+  const result = await styles(file, buildTimestamp);
 
-  return `<style>${css}</style>`;
+  return `<style>${result}</style>`;
 }
 
 /**
