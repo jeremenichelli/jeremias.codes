@@ -1,5 +1,13 @@
 export default [
   {
+    title: 'Static is the new Dynamic',
+    event: 'JoyConf 2025',
+    url: 'https://joyconf.storyblok.com/2025/amsterdam#event-agenda-session-modal-892f42bb-f588-4acf-9331-1e41cdf72273',
+    date: '2025-10-14',
+    abstract:
+      "Since their first resurgence, static site generators were aimed for hobbyists and personal sites. Not only their output was static, but also their source, stagnant files which required some technical level to change the content of the project. Nowadays, a modern take of these tools have learned from other successful frameworks. asynchronous content sources, island architectures, and better templating options have turned them into viable options for production enterprise sites. Let's explore these new capabilities, and how static site generation can be a great choice to use with your content management system and other data sources."
+  },
+  {
     title: 'The New Defaults of the Modern Web',
     event: 'Lisboa JS',
     url: 'https://luma.com/1qwvukzb',
