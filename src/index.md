@@ -4,7 +4,7 @@ type: home
 title: Jeremias Menichelli
 subtitle: curious mind, developer and writer
 excerpt: Over a decade building seamless web experiences. Web accessibility advocate. Technical lead behind award-winning sites. Design system tinkerer. Community and event ambassador.
-excerpt_2: Currently working as a Senior Documentation Engineer at [Storyblok](//storyblok.com), and acting as an ambassador for the [JSHeroes](//jsheroes.io/) conference.
+excerpt_2: Currently working as a Docs Engineer at [Supabase](//supabase.com), and acting as an ambassador for the [JSHeroes](//jsheroes.io/) conference.
 tag_line: Check all my past experience on the [about](/about) page.
 ---
 
